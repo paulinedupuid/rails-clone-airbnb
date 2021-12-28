@@ -1,10 +1,9 @@
-<h2>reservation</h2>
-<% if current_user == @reservation.user %>
-  <p><%= @reservation.user.first_name%> <%= @reservation.user.last_name%> wants to book your flat from <%= @reservation.reservation_start %> to <%= @reservation.reservation_end %>.</p>
+<h2>Reservation</h2>
+<% if current_user.id == @reservation.user.id %>
+  <p>You have made a reservation for <%= @flat.title %> from <%= @reservation.reservation_start.strftime("%B %d %Y") %> to <%= @reservation.reservation_end.strftime("%B %d %Y") %>, please wait for <%= @flat.user.first_name %>'s confirmation.</p>
+<% elsif current_user.id = @flat.user.id %>
+  <p><%= @reservation.user.first_name%> <%= @reservation.user.last_name%> wants to book your flat from <%= @reservation.reservation_start.strftime("%B %d %Y") %> to <%= @reservation.reservation_end.strftime("%B %d %Y") %>.</p>
   <%= link_to 'Accept', "#" %>
   <%= link_to 'Reject', "#" %>
-<% elsif current_user = @flat.user %>
-  <p>You have made a reservation for <%= @flat.title %> from <%= @reservation.reservation_start %> to <%= @reservation.reservation_end %>, please wait for <%= @flat.user.first_name %>'s confirmation.</p>
 <% end %>
-<%= link_to "Back to flat", flat_path(@flat) %>
 <%= link_to "Back to flats", flats_path %>
