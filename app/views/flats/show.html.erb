@@ -1,0 +1,11 @@
+<h2><%= @flat.title %></h2>
+<p><%= @flat.description %></p>
+<p><%= @flat.address %></p>
+<% if current_user == @flat.user %>
+  <p><%= link_to "Delete flat",
+                  flats_path,
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></p>
+<% end %>
+<%= link_to "Back to flats", flats_path %>
+<%= link_to "Book this flat", new_flat_reservation_path(@flat) %>

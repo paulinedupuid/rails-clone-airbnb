@@ -1,0 +1,10 @@
+<h2>Create a new flat</h2>
+<%= simple_form_for(@flat) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :address %>
+  <%= f.input :description %>
+  <%= f.input :availability_start %>
+  <%= f.input :availability_end %>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Back to flats", flats_path %>

@@ -1,0 +1,7 @@
+<h2>index</h2>
+<% @flats.each do |flat| %>
+  <%= link_to flat_path(flat) do %>
+    <p><%= flat.title %></p>
+  <% end %>
+<% end %>
+<%= link_to "Create a flat", new_flat_path %>
