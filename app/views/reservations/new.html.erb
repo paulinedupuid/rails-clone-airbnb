@@ -1,0 +1,7 @@
+<h2>New reservation for <%= @flat.title %></h2>
+<%= simple_form_for([@flat, @reservation]) do |f| %>
+  <%= f.input :reservation_start %>
+  <%= f.input :reservation_end %>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Back to flat", flat_path(@flat) %>
