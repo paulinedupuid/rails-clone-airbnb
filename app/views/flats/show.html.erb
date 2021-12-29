@@ -19,6 +19,6 @@
                     method: :delete,
                     data: { confirm: "Are you sure?" } %></p>
   <% end %>
-  <%= link_to "Back to flats", flats_path %>
-  <%= link_to "Book this flat", new_flat_reservation_path(@flat) %>
+  <%= link_to "Back to flats", flats_path, class: "btn btn-secondary" %>
+  <%= link_to "Book this flat", new_flat_reservation_path(@flat), class: "btn btn-primary" %>
 </div>
