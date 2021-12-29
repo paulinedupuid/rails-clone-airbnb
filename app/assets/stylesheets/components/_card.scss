@@ -1,0 +1,38 @@
+.container-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin: 50px 0px;
+}
+
+.card-flat {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-flat h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-flat p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-flat > .flat-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-flat .card-flat-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
