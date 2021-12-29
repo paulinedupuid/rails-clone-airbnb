@@ -5,6 +5,7 @@
   <%= f.input :description %>
   <%= f.input :availability_start %>
   <%= f.input :availability_end %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit %>
 <% end %>
 <%= link_to "Back to flats", flats_path %>
