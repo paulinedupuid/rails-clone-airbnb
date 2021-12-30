@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Dashboard</h2>
+  <% if current_user.flats.present? %>
+    <h3>Your flat(s)</h3>
+    <% @flats.each do |flat| %>
+      <h4><%= flat.title %></h4>
+      <p><%= flat.description %></p>
+      <p>Number of guests allowed: <%= flat.number_of_guests %></p>
+      <p><%= flat.price_per_day %>$ per day</p>
+      <p>Address: <%= flat.address %></p>
+    <% end %>
+  <% else %>
+    <p>You have no flat</p>
+  <% end %>
+
+  <% if current_user.reservations.present? %>
+    <h3>Your reservation(s)</h3>
+    <% @reservations.each do |reservation| %>
+      <p>You have made a reservation for <%= reservation.flat.title %> from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>, please wait for <%= reservation.flat.user.first_name %>'s confirmation.</p>
+      <p>Status: <%= reservation.status %></p>
+    <% end %>
+  <% end %>
+</div>

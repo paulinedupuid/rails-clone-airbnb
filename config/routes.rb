@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :flats do
     resources :reservations, only: [:new, :create]
+    collection do
+      get :dashboard
+    end
   end
   resources :reservations, only: [:show, :destroy]
 end

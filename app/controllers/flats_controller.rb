@@ -35,6 +35,11 @@ class FlatsController < ApplicationController
     redirect_to flats_path, notice: 'Flat destroyed successfully'
   end
 
+  def dashboard
+    @flats = Flat.where(user_id: current_user)
+    @reservations = Reservation.where(user_id: current_user)
+  end
+
   private
 
   def flat_params
