@@ -1,8 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <i class="fa-regular fa-building"></i>
+    <i class="fa-regular fa-building"> - Flaaaaat</i>
   <% end %>
-  <h1>Flaaaaat</h1>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -14,6 +13,9 @@
       <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to "Browse flats", flats_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Create a flat", new_flat_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
