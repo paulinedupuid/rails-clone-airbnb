@@ -4,7 +4,7 @@
     <p>You have made a reservation for <%= @flat.title %> from <%= @reservation.reservation_start.strftime("%B %d %Y") %> to <%= @reservation.reservation_end.strftime("%B %d %Y") %>, please wait for <%= @flat.user.first_name %>'s confirmation.</p>
     <p>Status: <%= @reservation.status %></p>
   <% elsif current_user.id = @flat.user.id %>
-    <p><%= @reservation.user.first_name%> <%= @reservation.user.last_name%> wants to book your flat from <%= @reservation.reservation_start.strftime("%B %d %Y") %> to <%= @reservation.reservation_end.strftime("%B %d %Y") %>.</p>
+    <p><%= @reservation.user.first_name %> <%= @reservation.user.last_name%> wants to book your flat from <%= @reservation.reservation_start.strftime("%B %d %Y") %> to <%= @reservation.reservation_end.strftime("%B %d %Y") %>.</p>
     <p>Status: <%= @reservation.status %></p>
     <%= link_to 'Accept', "#" %>
     <%= link_to 'Reject', "#" %>

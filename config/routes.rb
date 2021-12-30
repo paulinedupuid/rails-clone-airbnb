@@ -8,5 +8,8 @@ Rails.application.routes.draw do
       get :dashboard
     end
   end
-  resources :reservations, only: [:show, :destroy]
+  resources :reservations, only: [:show, :destroy] do
+    get :accept_status
+    get :reject_status
+  end
 end
