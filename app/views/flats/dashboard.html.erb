@@ -24,14 +24,14 @@
               </div>
             <% end %>
             <% if reservation.status == "accepted" %>
-              <p>Your have accepted <%= reservation.user.first_name %>'s reservation from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>, you can now get in touch to discuss the details!</p>
+              <p>You have accepted <%= reservation.user.first_name %>'s reservation from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>, you can now get in touch to discuss the details!</p>
               <p>Status: <%= reservation.status %></p>
               <div class="buttons">
                 <a class="btn btn-secondary" href="mailto:<%= reservation.user.email %>"> contact <%= reservation.user.first_name %></a>
               </div>
             <% end %>
             <% if reservation.status == "rejected" %>
-              <p>Your have rejected <%= reservation.user.first_name %>'s reservation.</p>
+              <p>You have rejected <%= reservation.user.first_name %>'s reservation.</p>
               <p>Status: <%= reservation.status %></p>
             <% end %>
           </div>
@@ -47,9 +47,9 @@
     <div class="container-cards">
       <% @reservations.each do |reservation| %>
         <div class="card-reservation">
+          <% if reservation.status == "pending" %>
           <p>You have made a reservation for <%= reservation.flat.title %> from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>, please wait for <%= reservation.flat.user.first_name %>'s confirmation.</p>
           <p>Status: <%= reservation.status %></p>
-          <% if reservation.status == "pending" %>
             <div class="buttons">
               <%= link_to "Cancel",
                         reservation_path(reservation),
@@ -59,6 +59,7 @@
             </div>
           <% end %>
           <% if reservation.status == "rejected" %>
+            <p>Your reservation for <%= reservation.flat.title %> from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %> has been rejected by <%= reservation.flat.user.first_name %>, sorry...</p>
             <div class="buttons">
               <%= link_to "Delete",
                         reservation_path(reservation),
