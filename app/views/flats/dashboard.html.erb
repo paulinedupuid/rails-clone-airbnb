@@ -48,7 +48,7 @@
       <% @reservations.each do |reservation| %>
         <div class="card-reservation">
           <% if reservation.status == "pending" %>
-          <p>You have made a reservation for <%= reservation.flat.title %> from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>, please wait for <%= reservation.flat.user.first_name %>'s confirmation.</p>
+          <p>You have made a reservation for <%= link_to flat_path(reservation.flat) do %> <%= reservation.flat.title %> <% end %> from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>, please wait for <%= reservation.flat.user.first_name %>'s confirmation.</p>
           <p>Status: <%= reservation.status %></p>
             <div class="buttons">
               <%= link_to "Cancel",
@@ -59,7 +59,7 @@
             </div>
           <% end %>
           <% if reservation.status == "rejected" %>
-            <p>Your reservation for <%= reservation.flat.title %> from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %> has been rejected by <%= reservation.flat.user.first_name %>, sorry...</p>
+            <p>Your reservation for <%= link_to flat_path(reservation.flat) do %> <%= reservation.flat.title %> <% end %> from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %> has been rejected by <%= reservation.flat.user.first_name %>, sorry...</p>
             <div class="buttons">
               <%= link_to "Delete",
                         reservation_path(reservation),
@@ -69,7 +69,7 @@
             </div>
           <% end %>
           <% if reservation.status == "accepted" %>
-            <p>Your reservation has been accepted by <%= reservation.flat.user.first_name %>, you can now get in touch to discuss the details!</p>
+            <p>Your reservation for <%= link_to flat_path(reservation.flat) do %> <%= reservation.flat.title %> <% end %> from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %> has been accepted by <%= reservation.flat.user.first_name %>, you can now get in touch to discuss the details!</p>
             <div class="buttons">
               <a class="btn btn-secondary" href="mailto:<%= reservation.flat.user.email %>"> contact <%= reservation.flat.user.first_name %> </a>
             </div>
