@@ -3,28 +3,40 @@
   <h3>Your flat(s)</h3>
   <% if current_user.flats.present? %>
     <% @flats.each do |flat| %>
-      <h4><%= flat.title %></h4>
-      <p><%= flat.description %></p>
-      <p>Number of guests allowed: <%= flat.number_of_guests %></p>
-      <p><%= flat.price_per_day %>$ per day</p>
-      <p>Address: <%= flat.address %></p>
+      <div class="container-description">
+        <h4><%= flat.title %></h4>
+        <p><%= flat.description %></p>
+        <p>Number of guests allowed: <%= flat.number_of_guests %></p>
+        <p><%= flat.price_per_day %>$ per day</p>
+        <p>Address: <%= flat.address %></p>
+      </div>
       <% if flat.reservations.present? %>
         <p>Your reservation(s) for <%= flat.title %></p>
+        <div class="container-cards">
         <%= flat.reservations.each do |reservation| %>
-          <p><%= reservation.user.first_name %> <%= reservation.user.last_name %> wants to book your flat from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>.</p>
-          <p>Status: <%= reservation.status %></p>
-          <% if reservation.status == "pending" %>
-            <%= link_to "Accept", reservation_accept_status_path(reservation), class: "btn btn-danger" %>
-            <%= link_to "Reject", reservation_reject_status_path(reservation), class: "btn btn-success" %>
-          <% end %>
-          <% if reservation.status == "accepted" %>
-            <p>Your have accepted <%= reservation.user.first_name %>' reservation, you can now get in touch to discuss the details!</p>
-            <a class="btn btn-secondary" href="mailto:<%=reservation.user.email%>"> contact <%= reservation.user.first_name%> </a>
-          <% end %>
-          <% if reservation.status == "rejected" %>
-            <p>Your have rejected <%= reservation.user.first_name %>' reservation.</p>
-          <% end %>
+          <div class="card-reservation">
+            <% if reservation.status == "pending" %>
+              <p><%= reservation.user.first_name %> <%= reservation.user.last_name %> wants to book your flat from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>.</p>
+              <p>Status: <%= reservation.status %></p>
+              <div class="buttons">
+                <%= link_to "Accept", reservation_accept_status_path(reservation), class: "btn btn-success mr-3" %>
+                <%= link_to "Reject", reservation_reject_status_path(reservation), class: "btn btn-danger" %>
+              </div>
+            <% end %>
+            <% if reservation.status == "accepted" %>
+              <p>Your have accepted <%= reservation.user.first_name %>'s reservation from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>, you can now get in touch to discuss the details!</p>
+              <p>Status: <%= reservation.status %></p>
+              <div class="buttons">
+                <a class="btn btn-secondary" href="mailto:<%= reservation.user.email %>"> contact <%= reservation.user.first_name %></a>
+              </div>
+            <% end %>
+            <% if reservation.status == "rejected" %>
+              <p>Your have rejected <%= reservation.user.first_name %>'s reservation.</p>
+              <p>Status: <%= reservation.status %></p>
+            <% end %>
+          </div>
         <% end %>
+      </div>
       <% end %>
     <% end %>
   <% else %>
@@ -51,7 +63,7 @@
       <% end %>
       <% if reservation.status == "accepted" %>
         <p>Your reservation has been accepted by <%= reservation.flat.user.first_name %>, you can now get in touch to discuss the details!</p>
-        <a class="btn btn-secondary" href="mailto:<%=reservation.flat.user.email%>"> contact <%= reservation.flat.user.first_name%> </a>
+        <a class="btn btn-secondary" href="mailto:<%= reservation.flat.user.email %>"> contact <%= reservation.flat.user.first_name %> </a>
       <% end %>
     <% end %>
   <% else %>
