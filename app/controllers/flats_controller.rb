@@ -14,6 +14,12 @@ class FlatsController < ApplicationController
   def show
     @flat = Flat.find(params[:id])
     @reservation = Reservation.new
+    # @marker = @flat.geocoded.map do |flat|
+    #   {
+    #     lat: flat.latitude,
+    #     lng: flat.longitude
+    #   }
+    # end
   end
 
   def new
