@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   root to: "pages#home"
   resources :flats do
     resources :reservations, only: [:new, :create]
+    collection do
+      get :dashboard
+    end
   end
-  resources :reservations, only: [:show, :destroy]
+  resources :reservations, only: [:show, :destroy] do
+    get :accept_status
+    get :reject_status
+  end
 end
