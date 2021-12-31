@@ -3,10 +3,26 @@ class FlatsController < ApplicationController
 
   def index
     @flats = Flat.all
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { flat: flat }),
+        image_url: helpers.asset_url('flat.svg')
+      }
+    end
   end
 
   def show
     @flat = Flat.find(params[:id])
+    @reservation = Reservation.new
+    @coordinates = @flat.geocode
+    @marker = [{
+      lat: @coordinates[0],
+      lng: @coordinates[1],
+      info_window: render_to_string(partial: "info_window", locals: { flat: @flat }),
+      image_url: helpers.asset_url('flat.svg')
+    }]
   end
 
   def new
