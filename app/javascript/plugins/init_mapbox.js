@@ -10,6 +10,7 @@ const buildMap = (mapElement) => {
 };
 
 const addMarkersToMap = (map, markers) => {
+  console.log(markers)
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.info_window);
     const element = document.createElement('div');
@@ -36,6 +37,7 @@ const initMapbox = () => {
   if (mapElement) {
     const map = buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
+    console.log(mapElement.dataset);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
     map.addControl(new MapboxGeocoder({
