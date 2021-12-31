@@ -6,7 +6,8 @@ class FlatsController < ApplicationController
     @markers = @flats.geocoded.map do |flat|
       {
         lat: flat.latitude,
-        lng: flat.longitude
+        lng: flat.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { flat: flat })
       }
     end
   end
@@ -14,12 +15,6 @@ class FlatsController < ApplicationController
   def show
     @flat = Flat.find(params[:id])
     @reservation = Reservation.new
-    # @marker = @flat.geocoded.map do |flat|
-    #   {
-    #     lat: flat.latitude,
-    #     lng: flat.longitude
-    #   }
-    # end
   end
 
   def new
