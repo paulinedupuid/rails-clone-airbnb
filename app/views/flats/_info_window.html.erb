@@ -1,2 +1,5 @@
-<h2><%= flat.title %></h2>
+<h2><%= link_to flat_path(flat) do %>
+  <%= flat.title %>
+  <% end %>
+</h2>
 <p><%= flat.address %></p>

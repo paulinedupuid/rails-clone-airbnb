@@ -15,6 +15,7 @@
         <p>Number of guests allowed: <%= @flat.number_of_guests %></p>
         <p><%= @flat.price_per_day %>$ per day</p>
         <p>Address: <%= @flat.address %></p>
+        <p>Available from <%= @flat.availability_start.strftime("%B %d %Y") %> to <%= @flat.availability_end.strftime("%B %d %Y") %></p>
         <% if current_user == @flat.user %>
           <p><%= link_to "Delete flat",
                           dashboard_flats_path,
