@@ -12,10 +12,10 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Browse flats", flats_path, class: "nav-link" %>
+          <%= link_to "Browse flats", flats_path, class: "nav-link text-white" %>
         </li>
         <li class="nav-item active">
-          <%= link_to "Create a flat", new_flat_path, class: "nav-link" %>
+          <%= link_to "Create a flat", new_flat_path, class: "nav-link mr-3 text-white" %>
         </li>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -26,10 +26,10 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link text-white" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link text-white" %>
         </li>
       <% end %>
     </ul>

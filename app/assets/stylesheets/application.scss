@@ -12,3 +12,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  background: linear-gradient(45deg, #323254D6, #47273AEB);
+  color: white;
+  min-width: 100vw;
+  min-height: 100vh;
+}

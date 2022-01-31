@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container rounded-container">
 
   <div class="row mb-5 mt-5">
     <div class="col-8">
@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="col-4">
-      <div class="container-description">
+      <div class="container-description text-white">
         <h2><%= @flat.title %></h2>
         <p><%= @flat.description %></p>
         <p>Number of guests allowed: <%= @flat.number_of_guests %></p>
@@ -42,10 +42,10 @@
           <%= f.input :reservation_start %>
           <%= f.input :reservation_end %>
           <%= f.input :number_of_guests %>
-          <%= f.submit "Book the flat", class: "btn btn-primary"%>
+          <%= f.submit "Book the flat", class: "btn blue-btn"%>
         <% end %>
       <% end %>
     </div>
   </div>
-  <%= link_to "Back to flats", flats_path, class: "btn btn-secondary mt-3" %>
+  <%= link_to "Back to flats", flats_path, class: "btn lavander-btn mt-3 mb-5" %>
 </div>

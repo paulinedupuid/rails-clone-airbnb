@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
     @reservation.flat = @flat
     if @reservation.save
-      redirect_to reservation_path(@reservation), notice: 'Reservation created'
+      redirect_to dashboard_flats_path, notice: 'Reservation created'
     else
       render 'reservations/new'
     end

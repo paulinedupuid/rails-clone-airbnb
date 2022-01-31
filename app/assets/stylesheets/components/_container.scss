@@ -2,16 +2,27 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  color: #082032;
 }
 
 .container-cards-show {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+  color: white;
 }
 
 .container-description {
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: $corail;
+  color: white;
+}
+
+.rounded-container {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+  margin: 20px auto;
+  padding: 40px;
 }
