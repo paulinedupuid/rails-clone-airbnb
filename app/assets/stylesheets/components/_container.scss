@@ -5,11 +5,28 @@
   color: #082032;
 }
 
-.container-cards-show {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-  color: white;
+@media(min-width: 1200px) {
+  .container-cards-show {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+
+@media (min-width: 990px) and (max-width: 1199px) {
+  .container-cards-show {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+
+@media(max-width: 989px) {
+  .container-cards-show {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+  }
 }
 
 .container-description {
