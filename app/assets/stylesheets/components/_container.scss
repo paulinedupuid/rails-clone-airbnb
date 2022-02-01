@@ -1,5 +1,5 @@
 @media(min-width: 1200px) {
-  .container-cards {
+  .container-cards-index {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
@@ -10,7 +10,7 @@
 }
 
 @media(min-width: 990px) and (max-width: 1199px) {
-  .container-cards {
+  .container-cards-index {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 16px;
@@ -19,7 +19,7 @@
 }
 
 @media(max-width: 989px) {
-  .container-cards {
+  .container-cards-index {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 16px;
@@ -66,4 +66,29 @@
   padding: 40px;
   color: white;
   background-color: rgba(111, 196,	214, 0.5);
+  border: 2px solid $blue;
+}
+
+@media(min-width: 1200px) {
+  .container-cards-dashboard {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 16px;
+  }
+}
+
+@media(min-width: 990px) and (max-width: 1199px) {
+  .container-cards-dashboard {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 16px;
+  }
+}
+
+@media(max-width: 989px) {
+  .container-cards-dashboard {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 16px;
+  }
 }

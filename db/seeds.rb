@@ -116,19 +116,19 @@ flat_seven.save!
 puts "---flats created---"
 
 puts "---creating reservations---"
-reservation_one = Reservation.new(reservation_start: Date.new(2022, 1, 18), reservation_end: Date.new(2022, 1, 25), number_of_guests: 4, status: "pending")
+reservation_one = Reservation.new(start_time: Date.new(2022, 1, 18), end_time: Date.new(2022, 1, 25), number_of_guests: 4, status: "pending")
 reservation_one.user = user_two
 reservation_one.flat = flat_one
 reservation_one.save!
-reservation_two = Reservation.new(reservation_start: Date.new(2022, 1, 28), reservation_end: Date.new(2022, 2, 3), number_of_guests: 1, status: "pending")
+reservation_two = Reservation.new(start_time: Date.new(2022, 1, 28), end_time: Date.new(2022, 2, 3), number_of_guests: 1, status: "pending")
 reservation_two.user = user_four
 reservation_two.flat = flat_one
 reservation_two.save!
-reservation_three = Reservation.new(reservation_start: Date.new(2022, 2, 15), reservation_end: Date.new(2022, 2, 27), number_of_guests: 2, status: "pending")
+reservation_three = Reservation.new(start_time: Date.new(2022, 2, 15), end_time: Date.new(2022, 2, 27), number_of_guests: 2, status: "pending")
 reservation_three.user = user_two
 reservation_three.flat = flat_two
 reservation_three.save!
-reservation_four = Reservation.new(reservation_start: Date.new(2022, 3, 17), reservation_end: Date.new(2022, 4, 1), number_of_guests: 2, status: "pending")
+reservation_four = Reservation.new(start_time: Date.new(2022, 3, 17), end_time: Date.new(2022, 4, 1), number_of_guests: 2, status: "pending")
 reservation_four.user = user_four
 reservation_four.flat = flat_three
 reservation_four.save!
