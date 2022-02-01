@@ -65,6 +65,30 @@ flat_three.photos.attach(io: flat_three_photo_one, filename: 'f3p1.jpg', content
 flat_three.photos.attach(io: flat_three_photo_two, filename: 'f3p2.jpg', content_type: 'image/jpg')
 flat_three.photos.attach(io: flat_three_photo_three, filename: 'f3p3.jpg', content_type: 'image/jpg')
 flat_three.save!
+
+flat_four_photo_one = URI.open('https://images.pexels.com/photos/2459/stairs-home-loft-lifestyle.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_four_photo_two = URI.open('https://images.pexels.com/photos/892618/pexels-photo-892618.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_four_photo_three = URI.open('https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_four_photo_four = URI.open('https://images.pexels.com/photos/932095/pexels-photo-932095.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_four = Flat.new(title: "Typical house in Dijon", description: "In the old tow of Dijon, discover this charming house", availability_start: Date.new(2022, 3, 15), availability_end: Date.new(2022, 4, 15), address: "9 Pl. de la Liberation, 21000 Dijon", price_per_day: 70, number_of_guests: 2)
+flat_four.user = user_three
+flat_four.photos.attach(io: flat_four_photo_one, filename: 'f4p1.jpg', content_type: 'image/jpg')
+flat_four.photos.attach(io: flat_four_photo_two, filename: 'f4p2.jpg', content_type: 'image/jpg')
+flat_four.photos.attach(io: flat_four_photo_three, filename: 'f4p3.jpg', content_type: 'image/jpg')
+flat_four.photos.attach(io: flat_four_photo_four, filename: 'f4p4.jpg', content_type: 'image/jpg')
+flat_four.save!
+
+flat_five_photo_one = URI.open('https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_five_photo_two = URI.open('https://images.pexels.com/photos/6621052/pexels-photo-6621052.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_five_photo_three = URI.open('https://images.pexels.com/photos/6438760/pexels-photo-6438760.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_five_photo_four = URI.open('https://images.pexels.com/photos/6077368/pexels-photo-6077368.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_five = Flat.new(title: "Lovely appartement in Nice", description: "Enjoy the view of Nice in this amazing appartement", availability_start: Date.new(2022, 3, 15), availability_end: Date.new(2022, 4, 15), address: "32 Av. du Mont Alban, 06300 Nice", price_per_day: 70, number_of_guests: 2)
+flat_five.user = user_one
+flat_five.photos.attach(io: flat_five_photo_one, filename: 'f5p1.jpg', content_type: 'image/jpg')
+flat_five.photos.attach(io: flat_five_photo_two, filename: 'f5p2.jpg', content_type: 'image/jpg')
+flat_five.photos.attach(io: flat_five_photo_three, filename: 'f5p3.jpg', content_type: 'image/jpg')
+flat_five.photos.attach(io: flat_five_photo_four, filename: 'f5p4.jpg', content_type: 'image/jpg')
+flat_five.save!
 puts "---flats created---"
 
 puts "---creating reservations---"
