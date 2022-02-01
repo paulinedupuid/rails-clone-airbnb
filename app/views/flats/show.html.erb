@@ -1,5 +1,5 @@
 <div class="container rounded-container">
-  <div class="row mb-5 mt-5">
+  <div class="row mb-3 mt-3">
     <div class="col-12 p-0 d-flex justify-content-center">
       <div class="container-cards-show">
         <% @flat.photos.each do |photo| %>
@@ -10,7 +10,7 @@
   </div>
   <div class="row mb-5 mt-5">
     <div class="col-6">
-      <div class="container-description text-white">
+      <div class="card-flat-description-show">
       <h2><%= @flat.title %></h2>
       <p><%= @flat.description %></p>
       <p>Number of guests allowed: <%= @flat.number_of_guests %></p>
@@ -44,5 +44,5 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
         class="mb-5 mt-5">
       </div>
-  <%= link_to "Back to flats", flats_path, class: "btn lavander-btn mt-3 mb-5" %>
+  <%= link_to "Back to flats", flats_path, class: "btn lavander-btn" %>
 </div>

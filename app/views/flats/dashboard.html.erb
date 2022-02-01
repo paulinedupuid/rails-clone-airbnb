@@ -1,16 +1,20 @@
+<h2 class="text-center mt-3">My dashboard</h2>
 <div class="container rounded-container">
-  <h2 class="text-center mt-3">My dashboard</h2>
-  <h3 class="mt-5">Your flat(s)</h3>
+  <h3 class="mt-3">Your flat(s)</h3>
   <% if current_user.flats.present? %>
     <% @flats.each do |flat| %>
-      <div class="container-description mt-3">
-        <h4><%= flat.title %></h4>
-        <p><%= flat.description %></p>
-        <p>Number of guests allowed: <%= flat.number_of_guests %></p>
-        <p><%= flat.price_per_day %>$ per day</p>
-        <p>Address: <%= flat.address %></p>
+      <div class="container-dashboard mt-3">
+        <div class="card-flat-description-dashboard">
+          <%= link_to flat_path(flat) do %>
+            <h4><%= flat.title %></h4>
+          <% end %>
+          <p><%= flat.description %></p>
+          <p>Number of guests allowed: <%= flat.number_of_guests %></p>
+          <p><%= flat.price_per_day %>$ per day</p>
+          <p>Address: <%= flat.address %></p>
+        </div>
         <% if flat.reservations.present? %>
-          <h4>Your reservation(s) for <%= flat.title %></h4>
+          <h4 class="mt-3">Your reservation(s) for <%= flat.title %></h4>
           <div class="container-cards">
             <% flat.reservations.each do |reservation| %>
               <div class="card-reservation">
@@ -43,7 +47,7 @@
     <p>You have no flats</p>
   <% end %>
   <%= link_to "Create a flat", new_flat_path, class: "btn blue-btn mt-3 mb-5" %>
-  <h3 class="mt-5">Your reservation(s)</h3>
+  <h3 class="mt-3">Your reservation(s)</h3>
   <% if current_user.reservations.present? %>
     <div class="container-description mt-3">
     <div class="container-cards">
