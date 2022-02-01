@@ -2,14 +2,26 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @flats = Flat.all
-    @markers = @flats.geocoded.map do |flat|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { flat: flat }),
-        image_url: helpers.asset_url('flat.svg')
-      }
+    if params[:query].present?
+      @flats = Flat.where("address ILIKE ?", "%#{params[:query]}%")
+      @markers = @flats.geocoded.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { flat: flat }),
+          image_url: helpers.asset_url('flat.svg')
+        }
+      end
+    else
+      @flats = Flat.all
+      @markers = @flats.geocoded.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { flat: flat }),
+          image_url: helpers.asset_url('flat.svg')
+        }
+      end
     end
   end
 
