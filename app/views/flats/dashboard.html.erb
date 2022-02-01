@@ -57,7 +57,6 @@
         <div class="card-reservation">
           <% if reservation.status == "pending" %>
             <p>You have made a reservation for <%= link_to flat_path(reservation.flat) do %> <%= reservation.flat.title %> <% end %> for <%= reservation.number_of_guests %> person(s) from <%= reservation.start_time.strftime("%B %d %Y") %> to <%= reservation.end_time.strftime("%B %d %Y") %>, please wait for <%= reservation.flat.user.first_name %>'s confirmation.</p>
-            <p>Location: <%= reservation.flat.address %></p>
             <p>Status: <%= reservation.status %></p>
             <div class="buttons">
               <%= link_to "Cancel",
