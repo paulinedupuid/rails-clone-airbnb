@@ -30,8 +30,8 @@
       <% if current_user != @flat.user %>
         <h2>New reservation for <%= @flat.title %></h2>
         <%= simple_form_for([@flat, @reservation]) do |f| %>
-          <%= f.input :start_time %>
-          <%= f.input :end_time %>
+          <%= f.input :reservation_start %>
+          <%= f.input :reservation_end %>
           <%= f.input :number_of_guests %>
           <%= f.submit "Book the flat", class: "btn blue-btn"%>
         <% end %>
