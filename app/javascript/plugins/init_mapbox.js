@@ -36,13 +36,14 @@ const initMapbox = () => {
   if (mapElement) {
     const map = buildMap(mapElement);
     const markers = JSON.parse(mapElement.dataset.markers);
-    console.log(mapElement.dataset);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
-    map.addControl(new MapboxGeocoder({
+    const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl
-    }));
+    });
+    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+    document.querySelector('.mapboxgl-ctrl-geocoder--input').setAttribute('placeholder', 'Search');
   }
 };
 
