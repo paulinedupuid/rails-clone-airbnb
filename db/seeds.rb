@@ -82,13 +82,37 @@ flat_five_photo_one = URI.open('https://images.pexels.com/photos/698170/pexels-p
 flat_five_photo_two = URI.open('https://images.pexels.com/photos/6621052/pexels-photo-6621052.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
 flat_five_photo_three = URI.open('https://images.pexels.com/photos/6438760/pexels-photo-6438760.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
 flat_five_photo_four = URI.open('https://images.pexels.com/photos/6077368/pexels-photo-6077368.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
-flat_five = Flat.new(title: "Lovely appartement in Nice", description: "Enjoy the view of Nice in this amazing appartement", availability_start: Date.new(2022, 3, 15), availability_end: Date.new(2022, 4, 15), address: "32 Av. du Mont Alban, 06300 Nice", price_per_day: 70, number_of_guests: 2)
+flat_five = Flat.new(title: "Lovely appartement in Nice", description: "Enjoy the view of Nice from this amazing appartement", availability_start: Date.new(2022, 3, 15), availability_end: Date.new(2022, 4, 15), address: "32 Av. du Mont Alban, 06300 Nice", price_per_day: 70, number_of_guests: 2)
 flat_five.user = user_one
 flat_five.photos.attach(io: flat_five_photo_one, filename: 'f5p1.jpg', content_type: 'image/jpg')
 flat_five.photos.attach(io: flat_five_photo_two, filename: 'f5p2.jpg', content_type: 'image/jpg')
 flat_five.photos.attach(io: flat_five_photo_three, filename: 'f5p3.jpg', content_type: 'image/jpg')
 flat_five.photos.attach(io: flat_five_photo_four, filename: 'f5p4.jpg', content_type: 'image/jpg')
 flat_five.save!
+
+flat_six_photo_one = URI.open('https://images.pexels.com/photos/7018406/pexels-photo-7018406.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_six_photo_two = URI.open('https://images.pexels.com/photos/3965563/pexels-photo-3965563.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_six_photo_three = URI.open('https://images.pexels.com/photos/6621244/pexels-photo-6621244.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_six_photo_four = URI.open('https://images.pexels.com/photos/6758773/pexels-photo-6758773.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_six = Flat.new(title: "Pretty flat in Lille", description: "Enjoy the best of Lille from this pretty appartement", availability_start: Date.new(2022, 3, 15), availability_end: Date.new(2022, 4, 15), address: "71 Bd Vauban, 59000 Lille", price_per_day: 70, number_of_guests: 2)
+flat_six.user = user_three
+flat_six.photos.attach(io: flat_six_photo_one, filename: 'f5p1.jpg', content_type: 'image/jpg')
+flat_six.photos.attach(io: flat_six_photo_two, filename: 'f5p2.jpg', content_type: 'image/jpg')
+flat_six.photos.attach(io: flat_six_photo_three, filename: 'f5p3.jpg', content_type: 'image/jpg')
+flat_six.photos.attach(io: flat_six_photo_four, filename: 'f5p4.jpg', content_type: 'image/jpg')
+flat_six.save!
+
+flat_seven_photo_one = URI.open('https://images.pexels.com/photos/6492402/pexels-photo-6492402.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_seven_photo_two = URI.open('https://images.pexels.com/photos/5417293/pexels-photo-5417293.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_seven_photo_three = URI.open('https://images.pexels.com/photos/6301168/pexels-photo-6301168.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_seven_photo_four = URI.open('https://images.pexels.com/photos/5602170/pexels-photo-5602170.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_seven = Flat.new(title: "Flat in the heart of Montpellier", description: "Visit Montpellier thanks to this lovely appartement next to the old town", availability_start: Date.new(2022, 3, 15), availability_end: Date.new(2022, 4, 15), address: "11 Rue du Faubourg Boutonnet, 34090 Montpellier", price_per_day: 70, number_of_guests: 2)
+flat_seven.user = user_one
+flat_seven.photos.attach(io: flat_seven_photo_one, filename: 'f5p1.jpg', content_type: 'image/jpg')
+flat_seven.photos.attach(io: flat_seven_photo_two, filename: 'f5p2.jpg', content_type: 'image/jpg')
+flat_seven.photos.attach(io: flat_seven_photo_three, filename: 'f5p3.jpg', content_type: 'image/jpg')
+flat_seven.photos.attach(io: flat_seven_photo_four, filename: 'f5p4.jpg', content_type: 'image/jpg')
+flat_seven.save!
 puts "---flats created---"
 
 puts "---creating reservations---"
