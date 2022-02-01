@@ -1,25 +1,29 @@
-<div class="container">
-  <h2 class="text-center mt-3">My dashboard</h2>
-  <h3>Your flat(s)</h3>
+<h2 class="text-center mt-3">My dashboard</h2>
+<div class="container rounded-container">
+  <h3 class="mt-3">Your flat(s)</h3>
   <% if current_user.flats.present? %>
     <% @flats.each do |flat| %>
-      <div class="container-description mt-3">
-        <h4><%= flat.title %></h4>
-        <p><%= flat.description %></p>
-        <p>Number of guests allowed: <%= flat.number_of_guests %></p>
-        <p><%= flat.price_per_day %>$ per day</p>
-        <p>Address: <%= flat.address %></p>
+      <div class="container-dashboard mt-3">
+        <div class="card-flat-description-dashboard">
+          <%= link_to flat_path(flat) do %>
+            <h4><%= flat.title %></h4>
+          <% end %>
+          <p><%= flat.description %></p>
+          <p>Number of guests allowed: <%= flat.number_of_guests %></p>
+          <p><%= flat.price_per_day %>$ per day</p>
+          <p>Address: <%= flat.address %></p>
+        </div>
         <% if flat.reservations.present? %>
-          <h4>Your reservation(s) for <%= flat.title %></h4>
+          <h4 class="mt-3">Your reservation(s) for <%= flat.title %></h4>
           <div class="container-cards">
             <% flat.reservations.each do |reservation| %>
               <div class="card-reservation">
                 <% if reservation.status == "pending" %>
-                  <p><%= reservation.user.first_name %> <%= reservation.user.last_name %> wants to book your flat from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>.</p>
+                  <p><%= reservation.user.first_name %> <%= reservation.user.last_name %> wants to book your flat for <%= reservation.number_of_guests %> person(s) from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>.</p>
                   <p>Status: <%= reservation.status %></p>
                   <div class="buttons">
-                    <%= link_to "Accept", reservation_accept_status_path(reservation), class: "btn btn-success mr-3" %>
-                    <%= link_to "Reject", reservation_reject_status_path(reservation), class: "btn btn-danger" %>
+                    <%= link_to "Accept", reservation_accept_status_path(reservation), class: "btn green-btn mr-3" %>
+                    <%= link_to "Reject", reservation_reject_status_path(reservation), class: "btn violet-btn" %>
                   </div>
                 <% end %>
                 <% if reservation.status == "accepted" %>
@@ -42,21 +46,23 @@
   <% else %>
     <p>You have no flats</p>
   <% end %>
+  <%= link_to "Create a flat", new_flat_path, class: "btn blue-btn mt-3 mb-5" %>
   <h3 class="mt-3">Your reservation(s)</h3>
   <% if current_user.reservations.present? %>
     <div class="container-description mt-3">
-    <div class="container-cards border">
+    <div class="container-cards">
       <% @reservations.each do |reservation| %>
         <div class="card-reservation">
           <% if reservation.status == "pending" %>
-            <p>You have made a reservation for <%= link_to flat_path(reservation.flat) do %> <%= reservation.flat.title %> <% end %> from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>, please wait for <%= reservation.flat.user.first_name %>'s confirmation.</p>
+            <p>You have made a reservation for <%= link_to flat_path(reservation.flat) do %> <%= reservation.flat.title %> <% end %> for <%= reservation.number_of_guests %> person(s) from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>, please wait for <%= reservation.flat.user.first_name %>'s confirmation.</p>
+            <p>Location: <%= reservation.flat.address %></p>
             <p>Status: <%= reservation.status %></p>
             <div class="buttons">
               <%= link_to "Cancel",
                         reservation_path(reservation),
                         method: :delete,
                         data: { confirm: "Are you sure?" },
-                        class: "btn btn-danger" %>
+                        class: "btn violet-btn" %>
             </div>
           <% end %>
           <% if reservation.status == "rejected" %>
@@ -84,5 +90,4 @@
   <% else %>
     <p>You have no reservations</p>
   <% end %>
-  <%= link_to "Create a flat", new_flat_path, class: "btn btn-primary mt-3" %>
 </div>

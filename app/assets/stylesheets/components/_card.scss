@@ -2,6 +2,8 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  color: #082032;
 }
 
 .card-flat h2 {
@@ -26,22 +28,44 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+  height: 88px;
+}
+
+.card-flat .card-flat-infos .card-flat-details {
+  display: flex;
+  flex-direction: column;
 }
 
 .card-reservation {
   overflow: hidden;
-  background: white;
+  border-radius: 5px;;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 300px;
+  color: white;
+  background-color: rgba(114,	145,	224, 0.5);
 }
 
 .card-reservation .buttons {
   display: flex;
   justify-content: center;
+}
+
+.card-flat-description-dashboard {
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: white;
+  background-color: rgba(224,	141,	161, 0.5);
+}
+
+.card-flat-description-show {
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: white;
+  background-color: $corail;
 }
