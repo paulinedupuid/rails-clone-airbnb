@@ -15,7 +15,7 @@
       <%= link_to "Create a flat", new_flat_path, class: "btn pink-btn" %>
     </div>
   </div>
-  <div class="container-cards mt-5">
+  <div class="container-cards-index mt-5">
     <% @flats.each do |flat| %>
       <%= link_to flat_path(flat) do %>
         <div class="card-flat">

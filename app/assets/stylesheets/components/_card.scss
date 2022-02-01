@@ -47,6 +47,7 @@
   height: 300px;
   color: white;
   background-color: rgba(114,	145,	224, 0.5);
+  border: 2px solid $lavander;
 }
 
 .card-reservation .buttons {
@@ -60,6 +61,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   color: white;
   background-color: rgba(224,	141,	161, 0.5);
+  border: 2px solid $corail;
 }
 
 .card-flat-description-show {

@@ -183,6 +183,8 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
+    simple_calendar (2.4.3)
+      rails (>= 3.0)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -240,6 +242,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.1)
   sass-rails (>= 6)
+  simple_calendar (~> 2.4)
   simple_form
   spring
   turbolinks (~> 5)
