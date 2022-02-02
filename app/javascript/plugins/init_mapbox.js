@@ -42,8 +42,11 @@ const initMapbox = () => {
       accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl
     });
-    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
-    document.querySelector('.mapboxgl-ctrl-geocoder--input').setAttribute('placeholder', 'Search');
+    const searchField = document.getElementById('geocoder')
+    if (searchField) {
+      searchField.appendChild(geocoder.onAdd(map));
+      document.querySelector('.mapboxgl-ctrl-geocoder--input').setAttribute('placeholder', 'Search');
+    }
   }
 };
 
