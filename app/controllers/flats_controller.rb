@@ -81,12 +81,6 @@ class FlatsController < ApplicationController
     @reservations = Reservation.where(user_id: current_user)
   end
 
-  # def availability
-  #   if @flat.reservation.present?
-  #     @flat_availability = @flat_availability -= @reservation_duration
-  #   end
-  # end
-
   private
 
   def flat_params

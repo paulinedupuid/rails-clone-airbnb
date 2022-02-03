@@ -16,7 +16,9 @@
       <p>Number of guests allowed: <%= @flat.number_of_guests %></p>
       <p><%= @flat.price_per_day %>$ per day</p>
       <p>Address: <%= @flat.address %></p>
-      <p>Available from <%= @flat.availability_start.strftime("%B %d %Y") %> to <%= @flat.availability_end.strftime("%B %d %Y") %></p>
+      <%= simple_form_for([@flat, @reservation]) do |f| %>
+        <%= f.input :reservation_start, as: :string, input_html: {class: "datepicker"}, placeholder: "Check availability", label: false %>
+      <% end %>
       <% if current_user == @flat.user %>
         <p><%= link_to "Delete flat",
                         dashboard_flats_path,
@@ -46,5 +48,3 @@
       </div>
   <%= link_to "Back to flats", flats_path, class: "btn lavander-btn" %>
 </div>
-
-<%= console %>
