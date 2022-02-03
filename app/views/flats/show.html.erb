@@ -30,8 +30,8 @@
       <% if current_user != @flat.user %>
         <h2>New reservation for <%= @flat.title %></h2>
         <%= simple_form_for([@flat, @reservation]) do |f| %>
-          <%= f.input :reservation_start, collection: @flat_availability, label: "From" %>
-          <%= f.input :reservation_end, collection: @flat_availability, label: "To" %>
+          <%= f.input :reservation_start, as: :string, input_html: {class: "datepicker"}, label: "From" %>
+          <%= f.input :reservation_end, as: :string, input_html: {class: "datepicker"}, label: "To" %>
           <%= f.input :number_of_guests, collection: 1..@flat.number_of_guests %>
           <%= f.submit "Book the flat", class: "btn blue-btn"%>
         <% end %>
@@ -46,5 +46,3 @@
       </div>
   <%= link_to "Back to flats", flats_path, class: "btn lavander-btn" %>
 </div>
-
-<%= console %>

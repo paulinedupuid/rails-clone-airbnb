@@ -43,7 +43,10 @@ class FlatsController < ApplicationController
       end
     end
     @flat_reservation.flatten!
+    @flat_reservation.sort!
     @flat_availability -= @flat_reservation
+    gon.flatavailability = @flat_availability
+    gon.flatreservation = @flat_reservation
 
   end
 
