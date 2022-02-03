@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to dashboard_flats_path, notice: 'Reservation created'
     else
-      render 'reservations/new'
+      render dashboard_flats_path
     end
   end
 

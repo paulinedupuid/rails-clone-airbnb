@@ -35,6 +35,19 @@ class FlatsController < ApplicationController
       info_window: render_to_string(partial: "info_window", locals: { flat: @flat }),
       image_url: helpers.asset_url('flat.svg')
     }]
+    @flat_availability = Range.new(@flat.availability_start, @flat.availability_end).to_a
+    @flat_reservation = []
+    @flat.reservations.each do |reservation|
+      unless reservation.status == "rejected"
+        @flat_reservation << Range.new(reservation.reservation_start, reservation.reservation_end).to_a
+      end
+    end
+    @flat_reservation.flatten!
+    @flat_reservation.sort!
+    @flat_availability -= @flat_reservation
+    gon.flatavailability = @flat_availability
+    gon.flatreservation = @flat_reservation
+
   end
 
   def new
@@ -67,6 +80,12 @@ class FlatsController < ApplicationController
     @flats = Flat.where(user_id: current_user)
     @reservations = Reservation.where(user_id: current_user)
   end
+
+  # def availability
+  #   if @flat.reservation.present?
+  #     @flat_availability = @flat_availability -= @reservation_duration
+  #   end
+  # end
 
   private
 
