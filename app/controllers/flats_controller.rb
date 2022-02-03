@@ -41,6 +41,8 @@ class FlatsController < ApplicationController
       @flat_reservation << Range.new(reservation.reservation_start, reservation.reservation_end).to_a
     end
     @flat_reservation.flatten!
+    @flat_availability -= @flat_reservation
+
   end
 
   def new
