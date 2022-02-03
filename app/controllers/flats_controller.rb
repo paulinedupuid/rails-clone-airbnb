@@ -38,7 +38,9 @@ class FlatsController < ApplicationController
     @flat_availability = Range.new(@flat.availability_start, @flat.availability_end).to_a
     @flat_reservation = []
     @flat.reservations.each do |reservation|
-      @flat_reservation << Range.new(reservation.reservation_start, reservation.reservation_end).to_a
+      unless reservation.status == "rejected"
+        @flat_reservation << Range.new(reservation.reservation_start, reservation.reservation_end).to_a
+      end
     end
     @flat_reservation.flatten!
     @flat_availability -= @flat_reservation
