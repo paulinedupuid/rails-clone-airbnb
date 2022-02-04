@@ -10,12 +10,14 @@ import "channels"
 import 'bootstrap';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
-import { initFlatpickr } from "../plugins/flatpickr";
+import { initFlatpickrReservation } from "../plugins/flatpickr";
+import { initFlatpickrNewFlat } from "../plugins/flatpickr";
 
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
-  initFlatpickr();
+  initFlatpickrReservation();
+  initFlatpickrNewFlat();
 })
 
 Rails.start()
