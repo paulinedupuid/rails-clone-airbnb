@@ -28,7 +28,6 @@ gem 'devise'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
-gem "simple_calendar", "~> 2.4"
 gem 'gon'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

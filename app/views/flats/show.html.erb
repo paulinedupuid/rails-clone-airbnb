@@ -16,9 +16,6 @@
       <p>Number of guests allowed: <%= @flat.number_of_guests %></p>
       <p><%= @flat.price_per_day %>$ per day</p>
       <p>Address: <%= @flat.address %></p>
-      <%= simple_form_for([@flat, @reservation]) do |f| %>
-        <%= f.input :reservation_start, as: :string, input_html: {class: "datepicker"}, placeholder: "Check availability", label: false %>
-      <% end %>
       <% if current_user == @flat.user %>
         <p><%= link_to "Delete flat",
                         dashboard_flats_path,
@@ -31,9 +28,10 @@
     <div class="col-6">
       <% if current_user != @flat.user %>
         <h2>New reservation for <%= @flat.title %></h2>
+        <p>Check the flat availability and choose your dates and number of guest(s)</p>
         <%= simple_form_for([@flat, @reservation]) do |f| %>
-          <%= f.input :reservation_start, as: :string, input_html: {class: "datepicker"}, label: "From" %>
-          <%= f.input :reservation_end, as: :string, input_html: {class: "datepicker"}, label: "To" %>
+          <%= f.input :reservation_start, as: :string, input_html: {class: "datepickerreservation"}, label: "From" %>
+          <%= f.input :reservation_end, as: :string, input_html: {class: "datepickerreservation"}, label: "To" %>
           <%= f.input :number_of_guests, collection: 1..@flat.number_of_guests %>
           <%= f.submit "Book the flat", class: "btn blue-btn"%>
         <% end %>

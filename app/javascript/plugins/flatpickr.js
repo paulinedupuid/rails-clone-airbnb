@@ -1,13 +1,18 @@
 import flatpickr from "flatpickr";
 
-const initFlatpickr = () => {
+const initFlatpickrReservation = () => {
   let availability = gon.flatavailability;
   let reservation = gon.flatreservation;
-  flatpickr(".datepicker", {
+  flatpickr(".datepickerreservation", {
     minDate: availability.at(0),
     maxDate: availability.at(-1),
     disable: reservation
   });
 }
 
-export { initFlatpickr };
+const initFlatpickrNewFlat = () => {
+  flatpickr(".datepickerflat", {});
+}
+
+export { initFlatpickrReservation };
+export { initFlatpickrNewFlat };

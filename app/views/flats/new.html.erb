@@ -5,9 +5,9 @@
       <%= simple_form_for(@flat) do |f| %>
         <%= f.input :title %>
         <%= f.input :address %>
-        <%= f.input :description %>
-        <%= f.input :availability_start %>
-        <%= f.input :availability_end %>
+        <%= f.input :description, as: :text %>
+        <%= f.input :availability_start, as: :string, input_html: {class: "datepickerflat"} %>
+        <%= f.input :availability_end, as: :string, input_html: {class: "datepickerflat"} %>
         <%= f.input :price_per_day %>
         <%= f.input :number_of_guests %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
