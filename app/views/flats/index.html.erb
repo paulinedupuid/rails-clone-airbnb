@@ -1,12 +1,12 @@
 <div class="container">
-  <h2 class="mt-5">Where do you want to go?</h2>
+  <h2 class="mt-5">Choose your destination!</h2>
   <div class="d-flex justify-content-between row">
     <div class="search col-6">
       <%= form_tag flats_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Find a flat"
+          placeholder: "Where do you want to go?"
         %>
         <%= submit_tag "Search", class: "btn blue-btn mt-3" %>
       <% end %>
@@ -15,7 +15,8 @@
       <%= link_to "Create a flat", new_flat_path, class: "btn pink-btn" %>
     </div>
   </div>
-  <div class="container-cards-index mt-5">
+  <h2 class="mt-5">Browse the flats!</h2>
+  <div class="container-cards-index">
     <% @flats.each do |flat| %>
       <%= link_to flat_path(flat) do %>
         <div class="card-flat">
