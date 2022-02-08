@@ -72,7 +72,7 @@ class FlatsController < ApplicationController
   def destroy
     @flat = Flat.find(params[:id])
     @flat.destroy
-    redirect_to flats_path, notice: 'Flat destroyed successfully'
+    redirect_to dashboard_flats_path, notice: 'Flat destroyed successfully'
   end
 
   def dashboard

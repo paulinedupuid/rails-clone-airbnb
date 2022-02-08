@@ -22,8 +22,11 @@ body {
   font-weight: 300;
 }
 
-h2 {
-  font-weight: 600;
+h1 {
+  background: -webkit-linear-gradient(45deg, #9351F9, #47AAD6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
 }
 
 h3 {

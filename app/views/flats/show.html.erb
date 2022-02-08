@@ -11,18 +11,11 @@
   <div class="row mb-5 mt-5">
     <div class="col-6">
       <div class="card-flat-description-show">
-      <h2><%= @flat.title %></h2>
-      <p><%= @flat.description %></p>
-      <p>Number of guests allowed: <%= @flat.number_of_guests %></p>
-      <p><%= @flat.price_per_day %>$ per day</p>
-      <p>Address: <%= @flat.address %></p>
-      <% if current_user == @flat.user %>
-        <p><%= link_to "Delete flat",
-                        dashboard_flats_path,
-                        method: :delete,
-                        data: { confirm: "Are you sure?" },
-                        class: "btn btn-danger" %></p>
-      <% end %>
+        <h2><%= @flat.title %></h2>
+        <p><%= @flat.description %></p>
+        <p>Number of guests allowed: <%= @flat.number_of_guests %></p>
+        <p><%= @flat.price_per_day %>$ per night</p>
+        <p>Address: <%= @flat.address %></p>
       </div>
     </div>
     <div class="col-6">
@@ -44,5 +37,5 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
         class="mb-5 mt-5">
       </div>
-  <%= link_to "Back to flats", flats_path, class: "btn lavander-btn" %>
+  <%= link_to 'Back', :back, class: "btn lavander-btn" %>
 </div>
