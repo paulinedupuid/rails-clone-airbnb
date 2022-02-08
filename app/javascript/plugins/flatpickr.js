@@ -5,7 +5,7 @@ const initFlatpickrReservation = () => {
   let reservation = gon.flatreservation;
   if (availability && reservation) {
     flatpickr(".datepickerreservation", {
-      minDate: availability.at(0),
+      minDate: "today",
       maxDate: availability.at(-1),
       disable: reservation
     });

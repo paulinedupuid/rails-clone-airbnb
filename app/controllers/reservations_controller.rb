@@ -11,10 +11,11 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.user = current_user
     @reservation.flat = @flat
+    # gon.reservationprice = @reservation.price
     if @reservation.save
       redirect_to dashboard_flats_path, notice: 'Reservation created'
     else
-      render dashboard_flats_path
+      redirect_to flat_path(@flat), notice: 'Please fill in all the fields'
     end
   end
 

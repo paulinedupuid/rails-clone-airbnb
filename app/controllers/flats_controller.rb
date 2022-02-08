@@ -47,6 +47,7 @@ class FlatsController < ApplicationController
     @flat_availability -= @flat_reservation
     gon.flatavailability = @flat_availability
     gon.flatreservation = @flat_reservation
+    gon.priceperday = @flat.price_per_day
   end
 
   def new

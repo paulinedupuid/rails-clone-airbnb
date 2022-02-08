@@ -12,12 +12,14 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initFlatpickrReservation } from "../plugins/flatpickr";
 import { initFlatpickr } from "../plugins/flatpickr";
+import { checkout } from "../plugins/checkout";
 
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initFlatpickrReservation();
   initFlatpickr();
+  checkout();
 })
 
 Rails.start()
