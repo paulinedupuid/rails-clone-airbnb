@@ -1,5 +1,5 @@
-<h2 class="text-center mt-3">My dashboard</h2>
 <div class="container rounded-container">
+  <h2 class="text-center mb-5">My dashboard</h2>
   <h3 class="mt-3">Your flat(s)</h3>
   <% if current_user.flats.present? %>
     <% @flats.each do |flat| %>
@@ -10,8 +10,13 @@
           <% end %>
           <p><%= flat.description %></p>
           <p>Number of guests allowed: <%= flat.number_of_guests %></p>
-          <p><%= flat.price_per_day %>$ per day</p>
+          <p><%= flat.price_per_day %>$ per night</p>
           <p>Address: <%= flat.address %></p>
+          <p><%= link_to "Delete flat",
+                        flat_path(flat),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" },
+                        class: "btn btn-danger" %></p>
         </div>
         <% if flat.reservations.present? %>
           <h4 class="mt-3">Your reservation(s) for <%= flat.title %></h4>

@@ -4,8 +4,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 16px;
     color: #082032;
-    height: 600px;
-    overflow-y:scroll;
+    max-height: 600px;
+    overflow-y: scroll;
   }
 }
 
