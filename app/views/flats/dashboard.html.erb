@@ -12,14 +12,17 @@
           <p>Number of guests allowed: <%= flat.number_of_guests %></p>
           <p><%= flat.price_per_day %>$ per night</p>
           <p>Address: <%= flat.address %></p>
-          <p><%= link_to "Delete flat",
-                        flat_path(flat),
-                        method: :delete,
-                        data: { confirm: "Are you sure?" },
-                        class: "btn btn-danger" %></p>
+          <div class="buttons d-flex">
+            <p><%= link_to "Delete flat",
+                          flat_path(flat),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" },
+                          class: "btn btn-danger mr-3" %></p>
+            <p><%= link_to "Update flat", edit_flat_path(flat), class: "btn pink-btn" %></p>
+          </div>
         </div>
         <% if flat.reservations.present? %>
-          <h4 class="mt-3">Your reservation(s) for <%= flat.title %></h4>
+          <h4 class="mt-3 mb-3">Your reservation(s) for <%= flat.title %></h4>
           <div class="container-cards-dashboard">
             <% flat.reservations.each do |reservation| %>
               <div class="card-reservation">
