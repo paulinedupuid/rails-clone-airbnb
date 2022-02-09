@@ -6,15 +6,18 @@ const checkout = () => {
   let start;
   let end;
 
-  reservationStart.addEventListener("input", () => {
-    reservationEnd.addEventListener("input", () => {
-      end = reservationEnd.value;
-      start = reservationStart.value;
-      if(start !== "" && end !== ""){
-        getNumberOfNights(start, end)
-      }
-    })
-  });
+  if(reservationStart && reservationEnd) {
+    reservationStart.addEventListener("input", () => {
+      reservationEnd.addEventListener("input", () => {
+        end = reservationEnd.value;
+        start = reservationStart.value;
+        if (start !== "" && end !== "") {
+          getNumberOfNights(start, end)
+        }
+      })
+    });
+  }
+
 }
 
 function getNumberOfNights(start, end) {
