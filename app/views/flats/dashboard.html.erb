@@ -27,7 +27,11 @@
             <% flat.reservations.each do |reservation| %>
               <div class="card-reservation">
                 <% if reservation.status == "pending" %>
-                  <p class="status-pending">Status: <%= reservation.status %></p>
+                  <% if reservation.reservation_end < Date.today %>
+                    <p class="status-archived">Status: archived</p>
+                  <% else %>
+                    <p class="status-pending">Status: <%= reservation.status %></p>
+                  <% end %>
                   <div>
                     <p>Guest name: <%= reservation.user.first_name %> <%= reservation.user.last_name %></p>
                     <p>Number of guests: <%= reservation.number_of_guests %></p>
@@ -43,7 +47,11 @@
                   </div>
                 <% end %>
                 <% if reservation.status == "accepted" %>
-                  <p class="status-accepted">Status: <%= reservation.status %></p>
+                  <% if reservation.reservation_end < Date.today %>
+                    <p class="status-archived">Status: archived</p>
+                  <% else %>
+                    <p class="status-accepted">Status: <%= reservation.status %></p>
+                  <% end %>
                   <div>
                     <p>Guest name: <%= reservation.user.first_name %> <%= reservation.user.last_name %></p>
                     <p>Number of guests: <%= reservation.number_of_guests %></p>
@@ -88,7 +96,11 @@
         <% @reservations.each do |reservation| %>
           <div class="card-reservation">
             <% if reservation.status == "pending" %>
-              <p class="status-pending">Status: <%= reservation.status %></p>
+              <% if reservation.reservation_end < Date.today %>
+                <p class="status-archived">Status: archived</p>
+              <% else %>
+                <p class="status-pending">Status: <%= reservation.status %></p>
+              <% end %>
               <div>
                 <p>You have made a reservation for
                   <%= link_to flat_path(reservation.flat) do %>
@@ -139,7 +151,11 @@
               </div>
             <% end %>
             <% if reservation.status == "accepted" %>
-              <p class="status-accepted">Status: <%= reservation.status %></p>
+              <% if reservation.reservation_end < Date.today %>
+                <p class="status-archived">Status: archived</p>
+              <% else %>
+                <p class="status-accepted">Status: <%= reservation.status %></p>
+              <% end %>
               <div>
                 <p>You have made a reservation for
                   <%= link_to flat_path(reservation.flat) do %>

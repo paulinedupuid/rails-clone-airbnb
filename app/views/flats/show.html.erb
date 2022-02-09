@@ -23,9 +23,18 @@
         <h2>New reservation for <%= @flat.title %></h2>
         <p>Check the flat availability and choose your dates and number of guest(s)</p>
         <%= simple_form_for([@flat, @reservation]) do |f| %>
-          <%= f.input :reservation_start, as: :string, input_html: {class: "datepickerreservation", value: @reservation_start }, required: true, label: "Arrival" %>
-          <%= f.input :reservation_end, as: :string, input_html: {class: "datepickerreservation", value: @reservation_end }, required: true, label: "Departure" %>
-          <%= f.input :number_of_guests, collection: 1..@flat.number_of_guests, required: true %>
+          <div class="d-flex align-items-center">
+            <%= f.input :reservation_start, as: :string, input_html: {class: "datepickerreservation", value: @reservation_start }, required: true, label: "Arrival", placeholder: "Select date" %>
+            <input type="reset" value="X" class="btn btn-light mt-3 reset-btn">
+          </div>
+          <div class="d-flex align-items-center">
+            <%= f.input :reservation_end, as: :string, input_html: {class: "datepickerreservation2", value: @reservation_end }, required: true, label: "Departure", placeholder: "Select date" %>
+            <input type="reset" value="X" class="btn btn-light mt-3 reset-btn">
+          </div>
+          <div class="d-flex align-items-center">
+            <%= f.input :number_of_guests, collection: 1..@flat.number_of_guests, required: true %>
+            <input type="reset" value="X" class="btn btn-light mt-3">
+          </div>
           <div class="checkout-modal"></div>
           <%= f.submit "Book the flat", class: "btn blue-btn"%>
         <% end %>
@@ -40,4 +49,3 @@
       </div>
   <%= link_to 'Back', :back, class: "btn lavander-btn" %>
 </div>
-<%= console %>

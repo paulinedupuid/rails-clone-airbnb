@@ -1,6 +1,7 @@
 let pricePerDay = gon.priceperday;
 
 const checkout = () => {
+  console.log("debug: checkout");
   let reservationStart = document.getElementById("reservation_reservation_start");
   let reservationEnd = document.getElementById("reservation_reservation_end");
   let start;
@@ -8,13 +9,11 @@ const checkout = () => {
 
   if(reservationStart && reservationEnd) {
     reservationStart.addEventListener("input", () => {
-      reservationEnd.addEventListener("input", () => {
-        end = reservationEnd.value;
-        start = reservationStart.value;
+      start = reservationStart.value;
+      end = reservationEnd.value;
         if (start !== "" && end !== "") {
           getNumberOfNights(start, end)
         }
-      })
     });
   }
 
@@ -34,7 +33,7 @@ function getNumberOfNights(start, end) {
   const diffInDays = (Math.round(diffInTime / oneDay));
 
   let modalContent = document.querySelector(".checkout-modal")
-  modalContent.innerHTML = `<p>${pricePerDay} x ${diffInDays} nights</p><p>Total: ${diffInDays * pricePerDay}€</p><p>You will not be charged until the reservation has been validated.</p>`
+  modalContent.innerHTML = `<p>${pricePerDay}€ x ${diffInDays} night(s)</p><p>Total: ${diffInDays * pricePerDay}€</p><p>You will not be charged until the reservation has been validated</p>`
 }
 
 export { checkout };
