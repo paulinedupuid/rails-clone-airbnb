@@ -37,17 +37,36 @@
 }
 
 .card-reservation {
-  overflow: hidden;
   border-radius: 5px;;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 300px;
   color: white;
   background-color: rgba(114,	145,	224, 0.5);
   border: 2px solid $lavander;
+}
+
+.card-reservation .status-accepted {
+  border: white 1px solid;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: $green;
+}
+
+.card-reservation .status-pending {
+  border: white 1px solid;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: $corail;
+}
+
+.card-reservation .status-rejected {
+  border: white 1px solid;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: $violet;
 }
 
 .card-reservation .buttons {

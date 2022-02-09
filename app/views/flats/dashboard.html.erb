@@ -27,23 +27,47 @@
             <% flat.reservations.each do |reservation| %>
               <div class="card-reservation">
                 <% if reservation.status == "pending" %>
-                  <p><%= reservation.user.first_name %> <%= reservation.user.last_name %> wants to book your flat for <%= reservation.number_of_guests %> person(s) from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>.</p>
-                  <p>Status: <%= reservation.status %></p>
+                  <p class="status-pending">Status: <%= reservation.status %></p>
+                  <div>
+                    <p>Guest name: <%= reservation.user.first_name %> <%= reservation.user.last_name %></p>
+                    <p>Number of guests: <%= reservation.number_of_guests %></p>
+                    <% number_of_nights = reservation.reservation_end - reservation.reservation_start %>
+                    <p>Stay: from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %></p>
+                    <p>Number of nights: <%= number_of_nights.to_i %></p>
+                    <% total_cost = number_of_nights * flat.price_per_day %>
+                    <p>Total cost: <%= total_cost.to_i %>€</p>
+                  </div>
                   <div class="buttons">
                     <%= link_to "Accept", reservation_accept_status_path(reservation), class: "btn green-btn mr-3" %>
                     <%= link_to "Reject", reservation_reject_status_path(reservation), class: "btn violet-btn" %>
                   </div>
                 <% end %>
                 <% if reservation.status == "accepted" %>
-                  <p>You have accepted <%= reservation.user.first_name %>'s reservation from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>, you can now get in touch to discuss the details!</p>
-                  <p>Status: <%= reservation.status %></p>
+                  <p class="status-accepted">Status: <%= reservation.status %></p>
+                  <div>
+                    <p>Guest name: <%= reservation.user.first_name %> <%= reservation.user.last_name %></p>
+                    <p>Number of guests: <%= reservation.number_of_guests %></p>
+                    <% number_of_nights = reservation.reservation_end - reservation.reservation_start %>
+                    <p>Stay: from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %></p>
+                    <p>Number of nights: <%= number_of_nights.to_i %></p>
+                    <% total_cost = number_of_nights * flat.price_per_day %>
+                    <p>Total cost: <%= total_cost.to_i %>€</p>
+                  </div>
                   <div class="buttons">
-                    <a class="btn pink-btn" href="mailto:<%= reservation.user.email %>"> contact <%= reservation.user.first_name %></a>
+                    <a class="btn pink-btn" href="mailto:<%= reservation.user.email %>"> Contact <%= reservation.user.first_name %> </a>
                   </div>
                 <% end %>
                 <% if reservation.status == "rejected" %>
-                  <p>You have rejected <%= reservation.user.first_name %>'s reservation.</p>
-                  <p>Status: <%= reservation.status %></p>
+                  <p class="status-rejected">Status: <%= reservation.status %></p>
+                  <div>
+                    <p>Guest name: <%= reservation.user.first_name %> <%= reservation.user.last_name %></p>
+                    <p>Number of guests: <%= reservation.number_of_guests %></p>
+                    <% number_of_nights = reservation.reservation_end - reservation.reservation_start %>
+                    <p>Stay: from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %></p>
+                    <p>Number of nights: <%= number_of_nights.to_i %></p>
+                    <% total_cost = number_of_nights * flat.price_per_day %>
+                    <p>Total cost: <%= total_cost.to_i %>€</p>
+                  </div>
                 <% end %>
               </div>
             <% end %>
@@ -60,13 +84,26 @@
   <h3 class="mt-3">Your reservation(s)</h3>
   <% if current_user.reservations.present? %>
     <div class="container-description mt-3">
-    <div class="container-cards-dashboard">
-      <% @reservations.each do |reservation| %>
-        <div class="card-reservation">
-          <% if reservation.status == "pending" %>
-            <p>You have made a reservation for <%= link_to flat_path(reservation.flat) do %> <%= reservation.flat.title %> <% end %> for <%= reservation.number_of_guests %> person(s) from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %>, please wait for <%= reservation.flat.user.first_name %>'s confirmation.</p>
-            <div>
-              <p>Status: <%= reservation.status %></p>
+      <div class="container-cards-dashboard">
+        <% @reservations.each do |reservation| %>
+          <div class="card-reservation">
+            <% if reservation.status == "pending" %>
+              <p class="status-pending">Status: <%= reservation.status %></p>
+              <div>
+                <p>You have made a reservation for
+                  <%= link_to flat_path(reservation.flat) do %>
+                    <%= reservation.flat.title %>
+                  <% end %>
+                </p>
+                <p>Host: <%= reservation.flat.user.first_name %> <%= reservation.flat.user.last_name %></p>
+                <p>Number of guests: <%= reservation.number_of_guests %></p>
+                <% number_of_nights = reservation.reservation_end - reservation.reservation_start %>
+                <p>Stay: from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %></p>
+                <p>Number of nights: <%= number_of_nights.to_i %></p>
+                <% flat = Flat.find(reservation.flat_id) %>
+                <% total_cost = number_of_nights * flat.price_per_day %>
+                <p>Total cost: <%= total_cost.to_i %>€</p>
+              </div>
               <div class="buttons">
                 <%= link_to "Cancel",
                           reservation_path(reservation),
@@ -74,12 +111,24 @@
                           data: { confirm: "Are you sure?" },
                           class: "btn violet-btn" %>
               </div>
-            </div>
-          <% end %>
-          <% if reservation.status == "rejected" %>
-            <p>Your reservation for <%= link_to flat_path(reservation.flat) do %> <%= reservation.flat.title %> <% end %> from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %> has been rejected by <%= reservation.flat.user.first_name %>, sorry...</p>
-            <div>
-              <p>Status: <%= reservation.status %></p>
+            <% end %>
+            <% if reservation.status == "rejected" %>
+              <p class="status-rejected">Status: <%= reservation.status %></p>
+              <div>
+                <p>You have made a reservation for
+                  <%= link_to flat_path(reservation.flat) do %>
+                    <%= reservation.flat.title %>
+                  <% end %>
+                </p>
+                <p>Host: <%= reservation.flat.user.first_name %> <%= reservation.flat.user.last_name %></p>
+                <p>Number of guests: <%= reservation.number_of_guests %></p>
+                <% number_of_nights = reservation.reservation_end - reservation.reservation_start %>
+                <p>Stay: from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %></p>
+                <p>Number of nights: <%= number_of_nights.to_i %></p>
+                <% flat = Flat.find(reservation.flat_id) %>
+                <% total_cost = number_of_nights * flat.price_per_day %>
+                <p>Total cost: <%= total_cost.to_i %>€</p>
+              </div>
               <div class="buttons">
                 <%= link_to "Delete",
                             reservation_path(reservation),
@@ -88,20 +137,31 @@
                             class: "btn btn-danger" %>
 
               </div>
-            </div>
-          <% end %>
-          <% if reservation.status == "accepted" %>
-            <p>Your reservation for <%= link_to flat_path(reservation.flat) do %> <%= reservation.flat.title %> <% end %> from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %> has been accepted by <%= reservation.flat.user.first_name %>, you can now get in touch to discuss the details!</p>
-            <div>
-              <p>Status: <%= reservation.status %></p>
-              <div class="buttons">
-                <a class="btn pink-btn" href="mailto:<%= reservation.flat.user.email %>"> contact <%= reservation.flat.user.first_name %> </a>
+            <% end %>
+            <% if reservation.status == "accepted" %>
+              <p class="status-accepted">Status: <%= reservation.status %></p>
+              <div>
+                <p>You have made a reservation for
+                  <%= link_to flat_path(reservation.flat) do %>
+                    <%= reservation.flat.title %>
+                  <% end %>
+                </p>
+                <p>Host: <%= reservation.flat.user.first_name %> <%= reservation.flat.user.last_name %></p>
+                <p>Number of guests: <%= reservation.number_of_guests %></p>
+                <% number_of_nights = reservation.reservation_end - reservation.reservation_start %>
+                <p>Stay: from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %></p>
+                <p>Number of nights: <%= number_of_nights.to_i %></p>
+                <% flat = Flat.find(reservation.flat_id) %>
+                <% total_cost = number_of_nights * flat.price_per_day %>
+                <p>Total cost: <%= total_cost.to_i %>€</p>
               </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+              <div class="buttons">
+                <a class="btn pink-btn" href="mailto:<%= reservation.flat.user.email %>"> Contact <%= reservation.flat.user.first_name %> </a>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   <% else %>
     <p>You have no reservations</p>

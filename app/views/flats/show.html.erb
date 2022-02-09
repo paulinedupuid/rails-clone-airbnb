@@ -14,7 +14,7 @@
         <h2><%= @flat.title %></h2>
         <p><%= @flat.description %></p>
         <p>Number of guests allowed: <%= @flat.number_of_guests %></p>
-        <p><%= @flat.price_per_day %>$ per night</p>
+        <p>Price: <%= @flat.price_per_day %>€ per night</p>
         <p>Address: <%= @flat.address %></p>
       </div>
     </div>
@@ -40,3 +40,4 @@
       </div>
   <%= link_to 'Back', :back, class: "btn lavander-btn" %>
 </div>
+<%= console %>
