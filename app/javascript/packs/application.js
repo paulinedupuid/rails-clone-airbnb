@@ -16,10 +16,10 @@ import { checkout } from "../plugins/checkout";
 
 
 document.addEventListener('turbolinks:load', () => {
-  initMapbox();
+  checkout();
   initFlatpickrReservation();
   initFlatpickr();
-  checkout();
+  initMapbox();
 })
 
 Rails.start()
