@@ -1,5 +1,6 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  require 'json'
 
   def index
     if params[:query].present?
@@ -59,7 +60,7 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user = current_user
     if @flat.save
-      redirect_to flat_path(@flat), notice: 'Flat created'
+      redirect_to dashboard_flats_path, notice: 'Flat created'
     else
       render 'flats/new'
     end
@@ -89,7 +90,7 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:title, :description, :address, :availability_start, :availability_end, :price_per_day, :number_of_guests, photos: [])
+    params.require(:flat).permit(:title, :description, :address, :availability_start, :availability_end, :price_per_day, :number_of_guests, amenities: [], photos: [])
   end
 
 end

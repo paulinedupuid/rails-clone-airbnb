@@ -17,7 +17,9 @@ const initFlatpickrReservation = () => {
 
 const initFlatpickr = () => {
   console.log("debug: initFlatPickr")
-  flatpickr(".datepicker", {});
+  flatpickr(".datepicker", {
+    minDate: "today"
+  });
 }
 
 export { initFlatpickrReservation };
