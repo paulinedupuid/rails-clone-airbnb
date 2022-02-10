@@ -20,6 +20,7 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickrReservation();
   initFlatpickr();
   initMapbox();
+  // clearFlatpickr();
 })
 
 Rails.start()

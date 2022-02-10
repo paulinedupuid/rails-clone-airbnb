@@ -1,5 +1,9 @@
-<h2><%= link_to flat_path(flat) do %>
-  <%= flat.title %>
+<% if controller_name == "flats" && action_name == "show" %>
+  <h5><%= flat.title %></h5>
+<% else %>
+  <h4><%= flat.title %></h4>
+  <p><%= flat.address %></p>
+  <%= link_to flat_path(flat) do %>
+      <p class="btn blue-btn">See more!</p>
   <% end %>
-</h2>
-<p><%= flat.address %></p>
+<% end %>

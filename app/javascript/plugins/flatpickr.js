@@ -22,5 +22,11 @@ const initFlatpickr = () => {
   });
 }
 
+
+const clearFlatpickr = () => {
+  flatpickr(".datepickerreservation", {}).clear();
+}
+
 export { initFlatpickrReservation };
 export { initFlatpickr };
+export { clearFlatpickr };
