@@ -10,6 +10,7 @@
         <%= f.input :availability_end, as: :string, input_html: {class: "datepicker"} %>
         <%= f.input :price_per_day %>
         <%= f.input :number_of_guests %>
+        <%= f.input :amenities, as: :check_boxes, collection: Flat::AMENITIES, input_html: { multiple: true } %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Update", class: "btn blue-btn" %>
       <% end %>

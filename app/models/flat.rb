@@ -1,5 +1,5 @@
 class Flat < ApplicationRecord
-  AMENITIES = ['wifi', 'television', 'car park', 'terrace', 'balcony', 'garden', 'patio', 'rooftop', 'stove', 'oven', 'kettle', 'micro-wave', 'dishwasher', 'washing machine', 'shower', 'bathtub', 'hot tub', 'bathroom towels', 'bathroom products', 'bed linen']
+  AMENITIES = ['wifi', 'television', 'car park', 'terrace', 'balcony', 'garden', 'patio', 'rooftop', 'stove', 'oven', 'kettle', 'micro-wave', 'coffee machine', 'dishwasher', 'washing machine', 'shower', 'bathtub', 'hot tub', 'bathroom towels', 'bathroom products', 'bed linen']
   belongs_to :user
   has_many :reservations, dependent: :destroy
   validates :title, presence: true
