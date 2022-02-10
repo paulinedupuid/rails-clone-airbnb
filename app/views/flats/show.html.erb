@@ -16,6 +16,16 @@
         <p>Number of guests allowed: <%= @flat.number_of_guests %></p>
         <p>Price: <%= @flat.price_per_day %>€ per night</p>
         <p>Address: <%= @flat.address %></p>
+        <% if @flat.amenities %>
+          <p>Amenities:</p>
+            <ul>
+            <% amenities = @flat.amenities.tr('["]','').split(',') %>
+            <% amenities.shift %>
+            <% amenities.each do |amenity| %>
+              <li><%= amenity %></li>
+            <% end %>
+            </ul>
+        <% end %>
       </div>
     </div>
     <div class="col-6">
