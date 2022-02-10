@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to dashboard_flats_path, notice: 'Reservation created'
     else
-      redirect_to flat_path(@flat), notice: 'Please fill in all the fields'
+      redirect_to flat_path(@flat), notice: 'There is an error in the form'
     end
   end
 

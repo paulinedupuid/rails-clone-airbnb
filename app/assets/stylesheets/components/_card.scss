@@ -69,6 +69,13 @@
   background-color: $violet;
 }
 
+.card-reservation .status-archived {
+  border: white 1px solid;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: $purple;
+}
+
 .card-reservation .buttons {
   display: flex;
   justify-content: center;
