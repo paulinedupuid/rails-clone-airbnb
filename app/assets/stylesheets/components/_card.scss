@@ -37,43 +37,15 @@
 }
 
 .card-reservation {
-  border-radius: 5px;;
+  border-radius: 25px;;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 16px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   color: white;
   background-color: rgba(114,	145,	224, 0.5);
-  border: 2px solid $lavander;
-}
-
-.card-reservation .status-accepted {
-  border: white 1px solid;
-  padding: 8px;
-  border-radius: 5px;
-  background-color: $green;
-}
-
-.card-reservation .status-pending {
-  border: white 1px solid;
-  padding: 8px;
-  border-radius: 5px;
-  background-color: $corail;
-}
-
-.card-reservation .status-rejected {
-  border: white 1px solid;
-  padding: 8px;
-  border-radius: 5px;
-  background-color: $violet;
-}
-
-.card-reservation .status-archived {
-  border: white 1px solid;
-  padding: 8px;
-  border-radius: 5px;
-  background-color: $purple;
+  margin: 2px;
 }
 
 .card-reservation .buttons {
@@ -82,12 +54,11 @@
 }
 
 .card-flat-description-dashboard {
-  border-radius: 15px;
+  border-radius: 25px;
   padding: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   color: white;
   background-color: rgba(224,	141,	161, 0.5);
-  border: 2px solid $corail;
 }
 
 .card-flat-description-show {

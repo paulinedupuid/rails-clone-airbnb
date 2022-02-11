@@ -16,6 +16,7 @@
         <p>Number of guests allowed: <%= @flat.number_of_guests %></p>
         <p>Price: <%= @flat.price_per_day %>€ per night</p>
         <p>Address: <%= @flat.address %></p>
+        <p>Host: <%= @flat.user.first_name %> <%= @flat.user.last_name %></p>
         <% if @flat.amenities %>
           <p>Amenities:</p>
             <div class="pill-container">

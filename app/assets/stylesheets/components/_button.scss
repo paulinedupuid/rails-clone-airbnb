@@ -74,3 +74,89 @@
   background-color: #38385ed6;
   color: white;
 }
+
+.light-red-dashboard-btn {
+  background: $light-red;
+  color: white;
+  border-radius: 15px;
+  padding: 4px 12px;
+}
+
+.light-red-dashboard-btn:hover {
+  transform: scale(1.05);
+  background-color: #d66668;
+  color: white;
+}
+
+.pink-dashboard-btn {
+  background: $pink;
+  color: white;
+  border-radius: 15px;
+  padding: 4px 12px;
+}
+
+.pink-dashboard-btn:hover {
+  transform: scale(1.05);
+  background-color: #D5A2F5;
+  color: white;
+}
+
+.green-small-btn {
+  background: $green;
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 15px;
+  margin: 2px 2px;
+  padding: 4px 8px;
+}
+
+.green-small-btn:hover {
+  transform: scale(1.05);
+  background-color: #68cac5;
+  color: white;
+}
+
+.violet-small-btn {
+  background: $violet;
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 15px;
+  margin: 2px 2px;
+  padding: 4px 8px;
+}
+
+.violet-small-btn:hover {
+  transform: scale(1.05);
+  background-color: #38385ed6;
+  color: white;
+}
+
+.pink-small-btn {
+  background: $pink;
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 15px;
+  margin: 2px 2px;
+  padding: 4px 8px;
+}
+
+.pink-small-btn:hover {
+  transform: scale(1.05);
+  background-color: #D5A2F5;
+  color: white;
+}
+
+.light-red-small-btn {
+  background: $light-red;
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 15px;
+  margin: 2px 2px;
+  padding: 4px 8px;
+}
+
+.light-red-small-btn:hover {
+  transform: scale(1.05);
+  background-color: #d66668;
+  color: white;
+}
