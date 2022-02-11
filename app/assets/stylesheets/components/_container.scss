@@ -92,3 +92,9 @@
       grid-gap: 16px;
   }
 }
+
+.pill-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}

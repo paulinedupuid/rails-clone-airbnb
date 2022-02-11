@@ -18,13 +18,13 @@
         <p>Address: <%= @flat.address %></p>
         <% if @flat.amenities %>
           <p>Amenities:</p>
-            <ul>
+            <div class="pill-container">
             <% amenities = @flat.amenities.tr('["]','').split(',') %>
             <% amenities.shift %>
             <% amenities.each do |amenity| %>
-              <li><%= amenity %></li>
+              <p class="amenity-pill"><%= amenity %></p>
             <% end %>
-            </ul>
+            </div>
         <% end %>
       </div>
     </div>
