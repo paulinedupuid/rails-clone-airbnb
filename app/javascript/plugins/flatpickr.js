@@ -23,10 +23,10 @@ const initFlatpickr = () => {
 }
 
 
-// const clearFlatpickr = () => {
-//   flatpickr(".datepickerreservation", {}).clear();
-// }
+const clearFlatpickr = () => {
+  document.querySelector(".datepickerreservation")._flatpickr.clear();
+}
 
 export { initFlatpickrReservation };
 export { initFlatpickr };
-// export { clearFlatpickr };
+export { clearFlatpickr };
