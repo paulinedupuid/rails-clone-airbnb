@@ -59,3 +59,12 @@
   padding: 4px 8px;
   background-color: $purple;
 }
+
+.status-active-pill {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 0.8rem;
+  border-radius: 15px;
+  margin: 2px 2px;
+  padding: 4px 8px;
+  background-color: $blue;
+}

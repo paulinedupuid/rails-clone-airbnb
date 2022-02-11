@@ -32,7 +32,7 @@ user_three.photo.attach(io: avatar_three, filename: 'jenny.jpg', content_type: '
 
 avatar_four = URI.open('https://images.pexels.com/photos/4559946/pexels-photo-4559946.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
 user_four = User.create(first_name: "Paul", last_name: "Ette", email: "paul.ette@yahoo.com", password: "123456")
-user_three.photo.attach(io: avatar_four, filename: 'paul.jpg', content_type: 'image/jpg')
+user_four.photo.attach(io: avatar_four, filename: 'paul.jpg', content_type: 'image/jpg')
 puts "---users created---"
 
 puts "---creating flats---"
