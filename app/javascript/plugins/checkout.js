@@ -32,8 +32,8 @@ function getNumberOfNights(start, end) {
   // Calculating the no. of days between two dates
   const diffInDays = (Math.round(diffInTime / oneDay));
 
-  let modalContent = document.querySelector(".checkout-modal")
-  modalContent.innerHTML = `<p>${pricePerDay}€ x ${diffInDays} night(s)</p><p>Total: ${diffInDays * pricePerDay}€</p><p>You will not be charged until the reservation has been validated</p>`
+  let modalContent = document.querySelector(".checkout-section")
+  modalContent.innerHTML = `<div class="checkout-card-details"><p>${pricePerDay}€ x ${diffInDays} night(s)</p><p>Total: ${diffInDays * pricePerDay}€</p><p>You will not be charged until the reservation has been validated</p></div>`
 }
 
 export { checkout };

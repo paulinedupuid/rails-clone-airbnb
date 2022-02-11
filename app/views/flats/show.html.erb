@@ -36,17 +36,19 @@
         <%= simple_form_for([@flat, @reservation]) do |f| %>
           <div class="d-flex align-items-center input-group">
             <%= f.input :reservation_start, as: :string, input_html: {class: "datepickerreservation form-control", value: @reservation_start }, required: true, hint: 'Cannot be blank. Reservation cannot start and end on the same day', label: "Arrival", placeholder: "Select date" %>
-            <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="document.querySelector('.datepickerreservation').value=''" class="input-group-text" style="margin-bottom: 6px; width: 38px; height: 38px; background-color: #E9ECEF">X</button>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon1" class="input-group-text" style="margin-bottom: 6px; width: 38px; height: 38px; background-color: #E9ECEF;">X</button>
+            <%= javascript_pack_tag 'clearflatpickr' %>
           </div>
           <div class="d-flex align-items-center input-group">
             <%= f.input :reservation_end, as: :string, input_html: {class: "datepickerreservation2 form-control", value: @reservation_end }, required: true, hint: 'Cannot be blank. Reservation cannot start and end on the same day',label: "Departure", placeholder: "Select date" %>
-            <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="document.querySelector('.datepickerreservation2').value=''" class="input-group-text" style="margin-bottom: 7px; width: 38px; height: 38px; background-color: #E9ECEF"">X</button>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="document.querySelector('.datepickerreservation2').value=''" class="input-group-text" style="margin-bottom: 7px; width: 38px; height: 38px; background-color: #E9ECEF;">X</button>
+            <%= javascript_pack_tag 'clearflatpickr' %>
           </div>
           <div class="d-flex align-items-center">
             <%= f.input :number_of_guests, collection: 1..@flat.number_of_guests, required: true, input_html: {class: "numberofguests" }, hint: 'Cannot be blank' %>
-            <button class="btn btn-outline-secondary" type="button" id="button-addon1" onclick="document.querySelector('.numberofguests').value=''" class="input-group-text" style="margin-bottom: 7px; width: 38px; height: 38px; background-color: #E9ECEF"">X</button>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon3" onclick="document.querySelector('.numberofguests').value=''" class="input-group-text" style="margin-bottom: 7px; width: 38px; height: 38px; background-color: #E9ECEF;">X</button>
           </div>
-          <div class="checkout-modal"></div>
+          <div class="checkout-section"></div>
           <%= f.submit "Book the flat", class: "btn blue-btn"%>
         <% end %>
       <% end %>
