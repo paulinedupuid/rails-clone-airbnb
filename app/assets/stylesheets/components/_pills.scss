@@ -1,8 +1,61 @@
 .amenity-pill {
-  border: 1px solid white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  margin: 2px 2px;
+  padding: 4px 8px;
+}
+
+.resa-pill {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background-color: rgba(255, 255, 255, 0.2);
   font-size: 0.8rem;
   border-radius: 15px;
   margin: 2px 2px;
   padding: 4px 8px;
+}
+
+.resa-pill-title {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-color: $purple;
+  font-size: 0.8rem;
+  border-radius: 15px;
+  margin: 2px 2px;
+  padding: 4px 8px;
+}
+
+.status-accepted-pill {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 0.8rem;
+  border-radius: 15px;
+  margin: 2px 2px;
+  padding: 4px 8px;
+  background-color: $green;
+}
+
+.status-pending-pill {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 0.8rem;
+  border-radius: 15px;
+  margin: 2px 2px;
+  padding: 4px 8px;
+  background-color: $corail;
+}
+
+.status-rejected-pill {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 0.8rem;
+  border-radius: 15px;
+  margin: 2px 2px;
+  padding: 4px 8px;
+  background-color: $violet;
+}
+
+.status-archived-pill {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 0.8rem;
+  border-radius: 15px;
+  margin: 2px 2px;
+  padding: 4px 8px;
+  background-color: $purple;
 }
