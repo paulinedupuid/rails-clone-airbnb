@@ -22,6 +22,35 @@
         </li>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+          <% current_user_flat_reservations = [] %>
+          <% if current_user.flats.present? %>
+            <% current_user.flats.each do |flat| %>
+              <% if flat.reservations.present? %>
+                <% flat.reservations.each do |reservation| %>
+                  <% current_user_flat_reservations << reservation.status %>
+                <% end %>
+              <% end %>
+            <% end %>
+            <% current_user_flat_reservations.each do |status| %>
+              <% if status == "pending" %>
+                <div class="notif avatar-notif"></div>
+              <% end %>
+            <% end %>
+          <% end %>
+
+          <% current_user_reservations = [] %>
+          <% if current_user.reservations.present? %>
+            <% current_user.reservations.each do |reservation| %>
+              <% current_user_reservations << reservation.status %>
+            <% end %>
+            <% current_user_reservations.each do |status| %>
+              <% if status == "pending" || status == "rejected" || status == "accepted" %>
+                <div class="notif avatar-notif"></div>
+              <% end %>
+            <% end %>
+          <% end %>
+
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Dashboard", dashboard_flats_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
