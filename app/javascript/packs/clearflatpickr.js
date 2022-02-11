@@ -7,6 +7,12 @@ const clearFlatpickr = () => {
 
 document.getElementById('button-addon1').addEventListener('click', () => {
   clearFlatpickr();
+  document.querySelector('.checkout-section').innerHTML = '';
+})
+
+document.getElementById('button-addon2').addEventListener('click', () => {
+  clearFlatpickr();
+  document.querySelector('.checkout-section').innerHTML = '';
 })
 
 export { clearFlatpickr };
