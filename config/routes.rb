@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :reservations, only: [:show, :destroy] do
     get :accept_status
     get :reject_status
+    get :active_status
   end
 end

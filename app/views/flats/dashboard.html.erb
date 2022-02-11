@@ -32,6 +32,7 @@
                 <% flat.reservations.each do |reservation| %>
                   <div class="card-reservation">
                     <% if reservation.status == "pending" %>
+                      <div class="notif pending-notif"></div>
                       <div class="pill-container">
                         <% if reservation.reservation_end < Date.today %>
                           <p class="status-archived-pill">Status: archived</p>
@@ -67,7 +68,27 @@
                           <p class="resa-pill">Total cost: <%= total_cost.to_i %>€</p>
                       </div>
                       <div class="buttons d-flex justify-content-center mt-1">
-                        <a class="btn pink-small-btn" href="mailto:<%= reservation.user.email %>"> Contact <%= reservation.user.first_name %> </a>
+                        <a class="pink-small-btn" href="mailto:<%= reservation.user.email %>">Contact <%= reservation.user.first_name %></a>
+                      </div>
+                    <% end %>
+                    <% if reservation.status == "active" %>
+                      <p>Make sure everything is ready for <%= reservation.user.first_name %> <%= reservation.user.last_name %>' stay!</p>
+                      <div class="pill-container">
+                        <% if reservation.reservation_end < Date.today %>
+                          <p class="status-archived-pill">Status: archived</p>
+                        <% else %>
+                          <p class="status-accepted-pill">Status: <%= reservation.status %></p>
+                        <% end %>
+                          <p class="resa-pill">Guest name: <%= reservation.user.first_name %> <%= reservation.user.last_name %></p>
+                          <p class="resa-pill">Number of guests: <%= reservation.number_of_guests %></p>
+                          <% number_of_nights = reservation.reservation_end - reservation.reservation_start %>
+                          <p class="resa-pill">Stay: from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %></p>
+                          <p class="resa-pill">Number of nights: <%= number_of_nights.to_i %></p>
+                          <% total_cost = number_of_nights * flat.price_per_day %>
+                          <p class="resa-pill">Total cost: <%= total_cost.to_i %>€</p>
+                      </div>
+                      <div class="buttons d-flex justify-content-center mt-1">
+                        <a class="pink-small-btn" href="mailto:<%= reservation.user.email %>">Contact <%= reservation.user.first_name %></a>
                       </div>
                     <% end %>
                     <% if reservation.status == "rejected" %>
@@ -104,6 +125,7 @@
       <% @reservations.each do |reservation| %>
         <div class="card-reservation">
           <% if reservation.status == "pending" %>
+            <div class="notif pending-notif"></div>
             <p>You have made a reservation for
               <%= link_to flat_path(reservation.flat) do %>
                 <%= reservation.flat.title %>
@@ -133,6 +155,7 @@
             </div>
           <% end %>
           <% if reservation.status == "rejected" %>
+            <div class="notif rejected-notif"></div>
             <p>You have made a reservation for
               <%= link_to flat_path(reservation.flat) do %>
                 <%= reservation.flat.title %>
@@ -159,6 +182,7 @@
             </div>
           <% end %>
           <% if reservation.status == "accepted" %>
+            <div class="notif accepted-notif"></div>
             <p>You have made a reservation for
               <%= link_to flat_path(reservation.flat) do %>
                 <%= reservation.flat.title %>
@@ -169,6 +193,31 @@
                 <p class="status-archived-pill">Status: archived</p>
               <% else %>
                 <p class="status-accepted-pill">Status: <%= reservation.status %></p>
+              <% end %>
+              <p class="resa-pill">Host: <%= reservation.flat.user.first_name %> <%= reservation.flat.user.last_name %></p>
+              <p class="resa-pill">Number of guests: <%= reservation.number_of_guests %></p>
+              <% number_of_nights = reservation.reservation_end - reservation.reservation_start %>
+              <p class="resa-pill">Stay: from <%= reservation.reservation_start.strftime("%B %d %Y") %> to <%= reservation.reservation_end.strftime("%B %d %Y") %></p>
+              <p class="resa-pill">Number of nights: <%= number_of_nights.to_i %></p>
+              <% flat = Flat.find(reservation.flat_id) %>
+              <% total_cost = number_of_nights * flat.price_per_day %>
+              <p class="resa-pill">Total cost: <%= total_cost.to_i %>€</p>
+            </div>
+            <div class="buttons mt-1">
+              <%= link_to "Mark as active", reservation_active_status_path(reservation), class: "blue-small-btn mr-3" %>
+            </div>
+          <% end %>
+          <% if reservation.status == "active" %>
+            <p>Enjoy your stay at
+              <%= link_to flat_path(reservation.flat) do %>
+                <%= reservation.flat.title %>!
+              <% end %>
+            </p>
+            <div class="pill-container">
+              <% if reservation.reservation_end < Date.today %>
+                <p class="status-archived-pill">Status: archived</p>
+              <% else %>
+                <p class="status-active-pill">Status: <%= reservation.status %></p>
               <% end %>
               <p class="resa-pill">Host: <%= reservation.flat.user.first_name %> <%= reservation.flat.user.last_name %></p>
               <p class="resa-pill">Number of guests: <%= reservation.number_of_guests %></p>

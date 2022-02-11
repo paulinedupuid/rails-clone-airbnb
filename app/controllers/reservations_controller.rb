@@ -38,6 +38,13 @@ class ReservationsController < ApplicationController
     redirect_to dashboard_flats_path, notice: "Reservation rejected"
   end
 
+  def active_status
+    @reservation = Reservation.find(params[:reservation_id])
+    @reservation.status = "active"
+    @reservation.save!
+    redirect_to dashboard_flats_path, notice: "Reservation active"
+  end
+
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
