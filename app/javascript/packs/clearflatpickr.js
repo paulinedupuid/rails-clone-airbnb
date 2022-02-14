@@ -11,6 +11,7 @@ if(document.getElementById('clear-btn-start')) {
     document.querySelector('.checkout-section').innerHTML = '';
   })
 }
+
 if (document.getElementById('clear-btn-end')) {
   document.getElementById('clear-btn-end').addEventListener('click', () => {
     clearFlatpickr();

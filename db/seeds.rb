@@ -18,20 +18,20 @@ User.destroy_all
 
 
 puts "---creating users---"
-avatar_one = URI.open('https://images.pexels.com/photos/8368454/pexels-photo-8368454.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
-user_one = User.create(first_name: "John", last_name: "Doe", email: "john.doe@yahoo.com", password: "123456")
-user_one.photo.attach(io: avatar_one, filename: 'john.jpg', content_type: 'image/jpg')
+avatar_one = URI.open('https://images.pexels.com/photos/7585815/pexels-photo-7585815.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+user_one = User.create(first_name: "Emma", last_name: "Mingella", email: "emma.mingella@yahoo.com", password: "em758581")
+user_one.photo.attach(io: avatar_one, filename: 'emma.jpg', content_type: 'image/jpg')
 
-avatar_two = URI.open('https://images.pexels.com/photos/7585815/pexels-photo-7585815.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
-user_two = User.create(first_name: "Jane", last_name: "Doette", email: "jane.doette@yahoo.com", password: "123456")
-user_two.photo.attach(io: avatar_two, filename: 'jane.jpg', content_type: 'image/jpg')
+avatar_two = URI.open('https://images.pexels.com/photos/8368454/pexels-photo-8368454.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+user_two = User.create(first_name: "Tom", last_name: "Brady", email: "tom.brady@yahoo.com", password: "tb836445")
+user_two.photo.attach(io: avatar_two, filename: 'tom.jpg', content_type: 'image/jpg')
 
 avatar_three = URI.open('https://images.pexels.com/photos/7968561/pexels-photo-7968561.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
-user_three = User.create(first_name: "Jenny", last_name: "Jen", email: "jenny.jen@yahoo.com", password: "123456")
+user_three = User.create(first_name: "Jenny", last_name: "Fisher", email: "jenny.fisher@yahoo.com", password: "jf796856")
 user_three.photo.attach(io: avatar_three, filename: 'jenny.jpg', content_type: 'image/jpg')
 
 avatar_four = URI.open('https://images.pexels.com/photos/4559946/pexels-photo-4559946.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
-user_four = User.create(first_name: "Paul", last_name: "Ette", email: "paul.ette@yahoo.com", password: "123456")
+user_four = User.create(first_name: "Paul", last_name: "Mira", email: "paul.mira@yahoo.com", password: "pm455994")
 user_four.photo.attach(io: avatar_four, filename: 'paul.jpg', content_type: 'image/jpg')
 puts "---users created---"
 
