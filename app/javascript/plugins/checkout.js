@@ -1,25 +1,24 @@
-let pricePerDay = gon.priceperday;
-
 const checkout = () => {
-  console.log("debug: checkout");
+  let price = document.getElementById('price');
   let reservationStart = document.getElementById("reservation_reservation_start");
   let reservationEnd = document.getElementById("reservation_reservation_end");
   let start;
   let end;
 
-  if(reservationStart && reservationEnd) {
+  if(reservationStart && reservationEnd && price) {
+    let pricePerDay = price.dataset.price;
     reservationStart.addEventListener("input", () => {
       start = reservationStart.value;
       end = reservationEnd.value;
         if (start !== "" && end !== "") {
-          getNumberOfNights(start, end)
+          getNumberOfNights(start, end, pricePerDay)
         }
     });
   }
 
 }
 
-function getNumberOfNights(start, end) {
+function getNumberOfNights(start, end, pricePerDay) {
   const date1 = new Date(start);
   const date2 = new Date(end);
 
@@ -33,7 +32,7 @@ function getNumberOfNights(start, end) {
   const diffInDays = (Math.round(diffInTime / oneDay));
 
   let modalContent = document.querySelector(".checkout-section")
-  modalContent.innerHTML = `<div class="checkout-card-details"><p>${pricePerDay}€ x ${diffInDays} night(s)</p><p>Total: ${diffInDays * pricePerDay}€</p><p>You will not be charged until the reservation has been validated</p></div>`
+  modalContent.innerHTML = `<div class="checkout-card-details"><p>${Number(pricePerDay)}€ x ${diffInDays} night(s)</p><p>Total: ${diffInDays * pricePerDay}€</p><p>You will not be charged until the reservation has been validated</p></div>`
 }
 
 export { checkout };

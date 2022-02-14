@@ -29,6 +29,7 @@ class FlatsController < ApplicationController
   def show
     @flat = Flat.find(params[:id])
     @reservation = Reservation.new
+
     @coordinates = @flat.geocode
     @marker = [{
       lat: @coordinates[0],
@@ -36,6 +37,7 @@ class FlatsController < ApplicationController
       info_window: render_to_string(partial: "info_window", locals: { flat: @flat }),
       image_url: helpers.asset_url('flat.svg')
     }]
+
     @flat_availability = Range.new(@flat.availability_start, @flat.availability_end).to_a
     @flat_reservation = []
     @flat.reservations.each do |reservation|
@@ -46,9 +48,9 @@ class FlatsController < ApplicationController
     @flat_reservation.flatten!
     @flat_reservation.sort!
     @flat_availability -= @flat_reservation
+
     gon.flatavailability = @flat_availability
     gon.flatreservation = @flat_reservation
-    gon.priceperday = @flat.price_per_day
   end
 
   def new
