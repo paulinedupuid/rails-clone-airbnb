@@ -5,14 +5,17 @@ const clearFlatpickr = () => {
   document.querySelector(".datepickerreservation")._flatpickr.clear();
 }
 
-document.getElementById('button-addon1').addEventListener('click', () => {
-  clearFlatpickr();
-  document.querySelector('.checkout-section').innerHTML = '';
-})
-
-document.getElementById('button-addon2').addEventListener('click', () => {
-  clearFlatpickr();
-  document.querySelector('.checkout-section').innerHTML = '';
-})
+if(document.getElementById('clear-btn-start')) {
+  document.getElementById('clear-btn-start').addEventListener('click', () => {
+    clearFlatpickr();
+    document.querySelector('.checkout-section').innerHTML = '';
+  })
+}
+if (document.getElementById('clear-btn-end')) {
+  document.getElementById('clear-btn-end').addEventListener('click', () => {
+    clearFlatpickr();
+    document.querySelector('.checkout-section').innerHTML = '';
+  })
+}
 
 export { clearFlatpickr };

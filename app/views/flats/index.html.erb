@@ -3,11 +3,17 @@
   <div class="d-flex justify-content-between row">
     <div class="search col-6">
       <%= form_tag flats_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Where do you want to go?"
-        %>
+        <div class="d-flex align-items-center input-group">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            id: "search-field",
+            placeholder: "Where do you want to go?"
+          %>
+          <%= link_to flats_path do %>
+          <button class="btn btn-light" type="button">X</button>
+          <% end %>
+        </div>
         <%= submit_tag "Search", class: "btn blue-btn mt-3" %>
       <% end %>
     </div>
@@ -17,19 +23,23 @@
   </div>
   <h2 class="mt-5">Browse the flats! 🏙️</h2>
   <div class="container-cards-index">
-    <% @flats.each do |flat| %>
-      <%= link_to flat_path(flat) do %>
-        <div class="card-flat">
-          <%= cl_image_tag flat.photos.first.key, class: "flat-image" %>
-          <div class="card-flat-infos">
-            <div class="card-flat-details">
-              <h2><%= flat.title %></h2>
-              <p><%= flat.address %></p>
+    <% if @flats.count.positive? %>
+      <% @flats.each do |flat| %>
+        <%= link_to flat_path(flat) do %>
+          <div class="card-flat">
+            <%= cl_image_tag flat.photos.first.key, class: "flat-image" %>
+            <div class="card-flat-infos">
+              <div class="card-flat-details">
+                <h2><%= flat.title %></h2>
+                <p><%= flat.address %></p>
+              </div>
+              <h2 class="card-flat-pricing"><%= flat.price_per_day %>€</h2>
             </div>
-            <h2 class="card-flat-pricing"><%= flat.price_per_day %>€</h2>
           </div>
-        </div>
+        <% end %>
       <% end %>
+    <% else %>
+      <h5 style="color: white">Sorry, it seems that there are no flats matching your destination...😕</h5>
     <% end %>
   </div>
   <h2 class="mt-5">Browse the map! 🗺️</h2>

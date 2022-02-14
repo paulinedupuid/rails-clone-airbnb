@@ -70,7 +70,7 @@ flat_four_photo_one = URI.open('https://images.pexels.com/photos/2459/stairs-hom
 flat_four_photo_two = URI.open('https://images.pexels.com/photos/892618/pexels-photo-892618.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
 flat_four_photo_three = URI.open('https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
 flat_four_photo_four = URI.open('https://images.pexels.com/photos/932095/pexels-photo-932095.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
-flat_four = Flat.new(title: "Typical house in Dijon", description: "In the old tow of Dijon, discover this charming house", availability_start: Date.new(2022, 1, 1), availability_end: Date.new(2022, 12, 31), address: "9 Pl. de la Liberation, 21000 Dijon", price_per_day: 70, number_of_guests: 2, amenities: "[bathtub, dishware, dishwasher, bathroom products, bed linen, bathroom towels, wifi, television, car park, terrace]")
+flat_four = Flat.new(title: "Typical house in Dijon", description: "In the old tow of Dijon, discover this charming house", availability_start: Date.new(2022, 1, 1), availability_end: Date.new(2022, 12, 31), address: "9 Pl. de la Liberation, 21000 Dijon", price_per_day: 150, number_of_guests: 2, amenities: "[bathtub, dishware, dishwasher, bathroom products, bed linen, bathroom towels, wifi, television, car park, terrace]")
 flat_four.user = user_three
 flat_four.photos.attach(io: flat_four_photo_one, filename: 'f4p1.jpg', content_type: 'image/jpg')
 flat_four.photos.attach(io: flat_four_photo_two, filename: 'f4p2.jpg', content_type: 'image/jpg')
