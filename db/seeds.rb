@@ -70,7 +70,7 @@ flat_four_photo_one = URI.open('https://images.pexels.com/photos/2459/stairs-hom
 flat_four_photo_two = URI.open('https://images.pexels.com/photos/892618/pexels-photo-892618.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
 flat_four_photo_three = URI.open('https://images.pexels.com/photos/698170/pexels-photo-698170.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
 flat_four_photo_four = URI.open('https://images.pexels.com/photos/932095/pexels-photo-932095.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
-flat_four = Flat.new(title: "Typical house in Dijon", description: "In the old tow of Dijon, discover this charming house", availability_start: Date.new(2022, 1, 1), availability_end: Date.new(2022, 12, 31), address: "9 Pl. de la Liberation, 21000 Dijon", price_per_day: 150, number_of_guests: 2, amenities: "[bathtub, dishware, dishwasher, bathroom products, bed linen, bathroom towels, wifi, television, car park, terrace]")
+flat_four = Flat.new(title: "Typical house in Dijon", description: "In the old tow of Dijon, discover this charming house", availability_start: Date.new(2022, 1, 1), availability_end: Date.new(2022, 12, 31), address: "9 Place de la Liberation, 21000 Dijon", price_per_day: 150, number_of_guests: 2, amenities: "[bathtub, dishware, dishwasher, bathroom products, bed linen, bathroom towels, wifi, television, car park, terrace]")
 flat_four.user = user_three
 flat_four.photos.attach(io: flat_four_photo_one, filename: 'f4p1.jpg', content_type: 'image/jpg')
 flat_four.photos.attach(io: flat_four_photo_two, filename: 'f4p2.jpg', content_type: 'image/jpg')
@@ -94,12 +94,12 @@ flat_six_photo_one = URI.open('https://images.pexels.com/photos/7018406/pexels-p
 flat_six_photo_two = URI.open('https://images.pexels.com/photos/3965563/pexels-photo-3965563.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
 flat_six_photo_three = URI.open('https://images.pexels.com/photos/6621244/pexels-photo-6621244.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
 flat_six_photo_four = URI.open('https://images.pexels.com/photos/6758773/pexels-photo-6758773.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
-flat_six = Flat.new(title: "Pretty flat in Lille", description: "Enjoy the best of Lille from this pretty appartement", availability_start: Date.new(2022, 1, 1), availability_end: Date.new(2022, 12, 31), address: "71 Bd Vauban, 59000 Lille", price_per_day: 90, number_of_guests: 4, amenities: "[shower, dishware, micro wave, coffee machine, bathroom products, bed linen, bathroom towels, balcony]")
+flat_six = Flat.new(title: "Pretty flat in Lille", description: "Enjoy the best of Lille from this pretty appartement", availability_start: Date.new(2022, 1, 1), availability_end: Date.new(2022, 12, 31), address: "71 Boulevard Vauban, 59000 Lille", price_per_day: 90, number_of_guests: 4, amenities: "[shower, dishware, micro wave, coffee machine, bathroom products, bed linen, bathroom towels, balcony]")
 flat_six.user = user_three
-flat_six.photos.attach(io: flat_six_photo_one, filename: 'f5p1.jpg', content_type: 'image/jpg')
-flat_six.photos.attach(io: flat_six_photo_two, filename: 'f5p2.jpg', content_type: 'image/jpg')
-flat_six.photos.attach(io: flat_six_photo_three, filename: 'f5p3.jpg', content_type: 'image/jpg')
-flat_six.photos.attach(io: flat_six_photo_four, filename: 'f5p4.jpg', content_type: 'image/jpg')
+flat_six.photos.attach(io: flat_six_photo_one, filename: 'f6p1.jpg', content_type: 'image/jpg')
+flat_six.photos.attach(io: flat_six_photo_two, filename: 'f6p2.jpg', content_type: 'image/jpg')
+flat_six.photos.attach(io: flat_six_photo_three, filename: 'f6p3.jpg', content_type: 'image/jpg')
+flat_six.photos.attach(io: flat_six_photo_four, filename: 'f6p4.jpg', content_type: 'image/jpg')
 flat_six.save!
 
 flat_seven_photo_one = URI.open('https://images.pexels.com/photos/6492402/pexels-photo-6492402.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
@@ -108,12 +108,48 @@ flat_seven_photo_three = URI.open('https://images.pexels.com/photos/6301168/pexe
 flat_seven_photo_four = URI.open('https://images.pexels.com/photos/5602170/pexels-photo-5602170.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
 flat_seven = Flat.new(title: "Flat in the heart of Montpellier", description: "Visit Montpellier thanks to this lovely appartement next to the old town", availability_start: Date.new(2022, 3, 15), availability_end: Date.new(2022, 4, 15), address: "11 Rue du Faubourg Boutonnet, 34090 Montpellier", price_per_day: 70, number_of_guests: 2, amenities: "[shower, coffee machine, bathroom products, bed linen, bathroom towels, balcony]")
 flat_seven.user = user_one
-flat_seven.photos.attach(io: flat_seven_photo_one, filename: 'f5p1.jpg', content_type: 'image/jpg')
-flat_seven.photos.attach(io: flat_seven_photo_two, filename: 'f5p2.jpg', content_type: 'image/jpg')
-flat_seven.photos.attach(io: flat_seven_photo_three, filename: 'f5p3.jpg', content_type: 'image/jpg')
-flat_seven.photos.attach(io: flat_seven_photo_four, filename: 'f5p4.jpg', content_type: 'image/jpg')
+flat_seven.photos.attach(io: flat_seven_photo_one, filename: 'f7p1.jpg', content_type: 'image/jpg')
+flat_seven.photos.attach(io: flat_seven_photo_two, filename: 'f7p2.jpg', content_type: 'image/jpg')
+flat_seven.photos.attach(io: flat_seven_photo_three, filename: 'f7p3.jpg', content_type: 'image/jpg')
+flat_seven.photos.attach(io: flat_seven_photo_four, filename: 'f7p4.jpg', content_type: 'image/jpg')
 flat_seven.save!
 puts "---flats created---"
+
+flat_eight_photo_one = URI.open('https://images.pexels.com/photos/7393980/pexels-photo-7393980.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_eight_photo_two = URI.open('https://images.pexels.com/photos/5998136/pexels-photo-5998136.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_eight_photo_three = URI.open('https://images.pexels.com/photos/6301184/pexels-photo-6301184.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_eight_photo_four = URI.open('https://images.pexels.com/photos/6198655/pexels-photo-6198655.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_eight = Flat.new(title: "Amazing flat in Lyon", description: "Enjoy the city from this amazing appartment close to Vieux Lyon", availability_start: Date.new(2022, 1, 1), availability_end: Date.new(2022, 12, 31), address: "86 Rue Saint-Georges, 69005 Lyon", price_per_day: 100, number_of_guests: 4, amenities: "[shower, dishware, bathroom products, bed linen, bathroom towels, wifi, television]")
+flat_eight.user = user_three
+flat_eight.photos.attach(io: flat_eight_photo_one, filename: 'f8p1.jpg', content_type: 'image/jpg')
+flat_eight.photos.attach(io: flat_eight_photo_two, filename: 'f8p2.jpg', content_type: 'image/jpg')
+flat_eight.photos.attach(io: flat_eight_photo_three, filename: 'f8p3.jpg', content_type: 'image/jpg')
+flat_eight.photos.attach(io: flat_eight_photo_four, filename: 'f8p4.jpg', content_type: 'image/jpg')
+flat_eight.save!
+
+flat_nine_photo_one = URI.open('https://images.pexels.com/photos/5998041/pexels-photo-5998041.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_nine_photo_two = URI.open('https://images.pexels.com/photos/5998138/pexels-photo-5998138.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_nine_photo_three = URI.open('https://images.pexels.com/photos/4992480/pexels-photo-4992480.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_nine_photo_four = URI.open('https://images.pexels.com/photos/7319279/pexels-photo-7319279.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_nine = Flat.new(title: "Typical flat in Paris", description: "Enjoy the best arronissement of Paris from this cosy appartment ", availability_start: Date.new(2022, 1, 1), availability_end: Date.new(2022, 12, 31), address: "60 Rue Charlot, 75003 Paris", price_per_day: 120, number_of_guests: 2, amenities: "[shower, dishware, bathroom products, bed linen, bathroom towels, wifi, television, coffee machine, micro wave]")
+flat_nine.user = user_one
+flat_nine.photos.attach(io: flat_nine_photo_one, filename: 'f9p1.jpg', content_type: 'image/jpg')
+flat_nine.photos.attach(io: flat_nine_photo_two, filename: 'f9p2.jpg', content_type: 'image/jpg')
+flat_nine.photos.attach(io: flat_nine_photo_three, filename: 'f9p3.jpg', content_type: 'image/jpg')
+flat_nine.photos.attach(io: flat_nine_photo_four, filename: 'f9p4.jpg', content_type: 'image/jpg')
+flat_nine.save!
+
+flat_ten_photo_one = URI.open('https://images.pexels.com/photos/4846106/pexels-photo-4846106.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_ten_photo_two = URI.open('https://images.pexels.com/photos/5760872/pexels-photo-5760872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_ten_photo_three = URI.open('https://images.pexels.com/photos/4846461/pexels-photo-4846461.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_ten_photo_four = URI.open('https://images.pexels.com/photos/4993065/pexels-photo-4993065.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')
+flat_ten = Flat.new(title: "Cute flat in Nantes", description: "Visit Nantes from this cosy appartment, walking distance from Ile de Nantes", availability_start: Date.new(2022, 1, 1), availability_end: Date.new(2022, 12, 31), address: "29 Rue des Olivettes, 44000 Nantes", price_per_day: 90, number_of_guests: 4, amenities: "[shower, dishware, bathroom products, bed linen, bathroom towels, wifi, television, kettle, washing machine, balcony]")
+flat_ten.user = user_three
+flat_ten.photos.attach(io: flat_ten_photo_one, filename: 'f10p1.jpg', content_type: 'image/jpg')
+flat_ten.photos.attach(io: flat_ten_photo_two, filename: 'f10p2.jpg', content_type: 'image/jpg')
+flat_ten.photos.attach(io: flat_ten_photo_three, filename: 'f10p3.jpg', content_type: 'image/jpg')
+flat_ten.photos.attach(io: flat_ten_photo_four, filename: 'f10p4.jpg', content_type: 'image/jpg')
+flat_ten.save!
 
 puts "---creating reservations---"
 reservation_one = Reservation.new(reservation_start: Date.new(2022, 3, 18), reservation_end: Date.new(2022, 3, 25), number_of_guests: 4, status: "pending")
