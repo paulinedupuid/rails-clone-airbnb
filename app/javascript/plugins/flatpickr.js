@@ -22,11 +22,5 @@ const initFlatpickr = () => {
   });
 }
 
-
-const clearFlatpickr = () => {
-  document.querySelector(".datepickerreservation")._flatpickr.clear();
-}
-
 export { initFlatpickrReservation };
 export { initFlatpickr };
-export { clearFlatpickr };

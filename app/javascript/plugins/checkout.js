@@ -15,22 +15,14 @@ const checkout = () => {
         }
     });
   }
-
 }
 
 function getNumberOfNights(start, end, pricePerDay) {
   const date1 = new Date(start);
   const date2 = new Date(end);
-
-  // One day in milliseconds
   const oneDay = 1000 * 60 * 60 * 24;
-
-  // Calculating the time difference between two dates
   const diffInTime = date2.getTime() - date1.getTime();
-
-  // Calculating the no. of days between two dates
   const diffInDays = (Math.round(diffInTime / oneDay));
-
   let modalContent = document.querySelector(".checkout-section")
   modalContent.innerHTML = `<div class="checkout-card-details"><p>${Number(pricePerDay)}€ x ${diffInDays} night(s)</p><p>Total: ${diffInDays * pricePerDay}€</p><p>You will not be charged until the reservation has been validated</p></div>`
 }

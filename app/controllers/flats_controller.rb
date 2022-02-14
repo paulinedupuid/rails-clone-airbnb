@@ -5,24 +5,10 @@ class FlatsController < ApplicationController
   def index
     if params[:query].present?
       @flats = Flat.where("address ILIKE ?", "%#{params[:query]}%")
-      @markers = @flats.geocoded.map do |flat|
-        {
-          lat: flat.latitude,
-          lng: flat.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { flat: flat }),
-          image_url: helpers.asset_url('flat.svg')
-        }
-      end
+      geocode(@flats)
     else
       @flats = Flat.all
-      @markers = @flats.geocoded.map do |flat|
-        {
-          lat: flat.latitude,
-          lng: flat.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { flat: flat }),
-          image_url: helpers.asset_url('flat.svg')
-        }
-      end
+      geocode(@flats)
     end
   end
 
@@ -38,19 +24,7 @@ class FlatsController < ApplicationController
       image_url: helpers.asset_url('flat.svg')
     }]
 
-    @flat_availability = Range.new(@flat.availability_start, @flat.availability_end).to_a
-    @flat_reservation = []
-    @flat.reservations.each do |reservation|
-      unless reservation.status == "rejected"
-        @flat_reservation << Range.new(reservation.reservation_start, reservation.reservation_end).to_a
-      end
-    end
-    @flat_reservation.flatten!
-    @flat_reservation.sort!
-    @flat_availability -= @flat_reservation
-
-    gon.flatavailability = @flat_availability
-    gon.flatreservation = @flat_reservation
+    availability(@flat)
   end
 
   def new
@@ -94,4 +68,29 @@ class FlatsController < ApplicationController
     params.require(:flat).permit(:title, :description, :address, :availability_start, :availability_end, :price_per_day, :number_of_guests, amenities: [], photos: [])
   end
 
+  def geocode(flats)
+    @markers = flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { flat: flat }),
+        image_url: helpers.asset_url('flat.svg')
+      }
+    end
+  end
+
+  def availability(flat)
+    @flat_availability = Range.new(flat.availability_start, flat.availability_end).to_a
+    @flat_reservation = []
+    @flat.reservations.each do |reservation|
+      unless reservation.status == "rejected"
+        @flat_reservation << Range.new(reservation.reservation_start, reservation.reservation_end).to_a
+      end
+    end
+    @flat_reservation.flatten!
+    @flat_reservation.sort!
+    @flat_availability -= @flat_reservation
+    gon.flatavailability = @flat_availability
+    gon.flatreservation = @flat_reservation
+  end
 end
